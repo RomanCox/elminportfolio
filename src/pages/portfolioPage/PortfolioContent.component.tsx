@@ -80,8 +80,6 @@ export const PortfolioContent = () => {
 			});
 	}, []);
 
-	console.log(videos);
-
 	return (
 		<VideosContainerStyled>
 			{videos.length && modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
