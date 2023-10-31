@@ -9,7 +9,6 @@ import {Title} from '../../components/title';
 import {ContactsPageContainerStyled, TitleContainerStyled} from './ContactsPage.styled.ts';
 import {Contacts} from './Contacts.container.tsx';
 
-
 const ContactsPage = () => {
 	const [menuIsShow, setMenuIsShow] = useState<boolean>(false);
 

@@ -1,5 +1,5 @@
 import {PATH} from '../../App';
-import {Logo} from '../../components/logo/Logo';
+import {Logo} from '../../components/logo';
 import photo from '../../assets/images/avatar.png';
 
 import {
@@ -21,7 +21,7 @@ export const MainPageDesktop = () => <MainPageContainerStyled>
             </PhotoContainerStyled>
             <ContentContainerStyled>
                 <LogoContainerStyled>
-                    <Logo variant='black' size='large'/>
+                    <Logo variant={'black'} size={'large'}/>
                 </LogoContainerStyled>
                 <NameContainerStyled>
                     <NameStyled>Elmin Karaev</NameStyled>

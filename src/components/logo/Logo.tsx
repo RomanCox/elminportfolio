@@ -38,8 +38,8 @@ export const Logo = ({variant, size = 'small', homePage = false}: LogoPropsType)
 	return (
 		<LogoContainerStyled color={variant} size={size}>
 			<picture>
-				<source type="image/webp" srcSet={variant === 'black' ? logoBlackWEBP : logoWhiteWEBP} />
-				<source type="image/png" srcSet={variant === 'black' ? logoBlackPNG : logoWhitePNG} />
+				<source type={'image/webp'} srcSet={variant === 'black' ? logoBlackWEBP : logoWhiteWEBP} />
+				<source type={'image/png'} srcSet={variant === 'black' ? logoBlackPNG : logoWhitePNG} />
 				<LogoStyled src={variant === 'black' ? logoBlackWEBP : logoWhiteWEBP} width={'100%'} height={'auto'}/>
 			</picture>
 			<AfterBlockStyled $show={show} color={variant} size={size} $homePage={homePage}>

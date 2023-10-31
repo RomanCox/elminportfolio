@@ -27,7 +27,7 @@ const HomePage = () => {
 			<BurgerMenu menuIsShow={menuIsShow} homePage/>
 			<ContentContainerStyled>
 				<TitleContainer>
-					<Title text='Elmin Karaev' variant='h2' color='#fff'/>
+					<Title text={'Elmin Karaev'} variant={'h2'} color={'#fff'}/>
 				</TitleContainer>
 				<ServicesListContainer>
 					3D Modeling | visualization | animation | interactive | VR
@@ -35,7 +35,7 @@ const HomePage = () => {
 				<ButtonStyled
 					component={NavLink}
 					to={PATH.CONTACTS}
-					variant='contained'
+					variant={'contained'}
 				>
 					Contact me
 				</ButtonStyled>

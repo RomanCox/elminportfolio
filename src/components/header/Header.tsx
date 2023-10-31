@@ -50,7 +50,7 @@ export const Header = ({
 			{homePage
 				? <>
 					<BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
-					<LogoContainerStyled $homePage>
+					<LogoContainerStyled to={PATH.HOME} $homePage>
 						<Logo variant='white' homePage/>
 					</LogoContainerStyled>
 					<SocialLinksAndLangContainerStyled>
@@ -65,7 +65,7 @@ export const Header = ({
 					</SocialLinksAndLangContainerStyled>
 				</>
 				: <>
-					<LogoContainerStyled href={PATH.HOME}>
+					<LogoContainerStyled to={PATH.HOME}>
 						<Logo variant='black'/>
 					</LogoContainerStyled>
 					{isShowBurgerButton

@@ -57,7 +57,7 @@ export const IconSet = () => {
         <>
             {socials.map(social =>
                 <SocialLinkContainerStyled key={social.id}>
-                    <SocialLinkStyled title={`link to ${social.title}`} href={social.link}>
+                    <SocialLinkStyled title={`link to ${social.title}`} href={social.link} target={'_blank'} rel={'noopener nofollow noreferrer'}>
                         <picture>
                             <source type={'image/webp'} srcSet={social.iconWEBP}/>
                             <source type={'image/png'} srcSet={social.iconPNG}/>

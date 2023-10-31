@@ -26,16 +26,16 @@ export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigat
 		},
 		{
 			id: 1,
+			label: 'Interactive & Animation',
+			description: [],
+		},
+		{
+			id: 2,
 			label: '3D Modeling & Visualization',
 			description: [
 				'In this section you will see my best work on architectural visualization in Unreal Engine. I create projects in Unreal Engine. I customize renderings of interiors and exteriors.',
 				'I create video presentation of real estate, interactive projects for personal computers as well as VR projects. You can see the quality of visualization and experience of my work in the examples.',
 			],
-		},
-		{
-			id: 2,
-			label: 'Interactive & Animation',
-			description: [],
 		},
 		{
 			id: 3,

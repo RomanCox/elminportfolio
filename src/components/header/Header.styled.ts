@@ -85,7 +85,7 @@ export const BarsStyled = styled.div<BurgerStyledPropsType>`
   }
 `;
 
-export const LogoContainerStyled = styled.a<HeaderPropsType>`
+export const LogoContainerStyled = styled(NavLink)<HeaderPropsType>`
   width: ${({ $homePage = false }) => $homePage ? '300px' : '200px'};
   height: ${({ $homePage = false }) => $homePage ? '75px' : '50px'};
   font-size: ${({ $homePage = false }) => $homePage ? '12px' : '8px'};

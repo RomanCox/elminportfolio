@@ -49,10 +49,6 @@ export interface VideoContextType {
 	snippet: VideoSnippetType,
 }
 
-// interface PortfolioContentPropsType {
-//     openModal: () => void,
-// }
-
 export const PortfolioContent = () => {
 	const [modalIsShow, setModalIsShow] = useState<boolean>(false);
 	const [videos, setVideos] = useState<VideoContextType[]>([]);
@@ -70,9 +66,6 @@ export const PortfolioContent = () => {
 
 	const getPlaylist = async () => {
 		try {
-			//console.log(playlist.data.items[0].snippet.thumbnails.standard.url);
-			//console.log(playlist.data.items);
-			//setVideos(playlist.data.items);
 			return await youtubeAPI.getPlaylist();
 		}
 		catch (err) {
@@ -95,7 +88,7 @@ export const PortfolioContent = () => {
 				<iframe
 					width='560' height='315'
 					src={`https://www.youtube.com/embed/${videos.filter(video => video.id === videoInModal)[0].contentDetails.videoId}`}
-					title={videos.filter(video => video.id === videoInModal)[0].snippet.title} frameBorder='0'
+					title={videos.filter(video => video.id === videoInModal)[0].snippet.title}
 					allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
 					allowFullScreen
 				/>
@@ -108,10 +101,6 @@ export const PortfolioContent = () => {
 					$height={video.snippet.thumbnails.high?.height ? video.snippet.thumbnails.high.height : 0}
 					onClick={() => openModal(video.id)}
 				/>,
-				// {
-				// 	console.log(video);
-				// 	return <></>
-				// }
 			)}
 		</VideosContainerStyled>
 	);
