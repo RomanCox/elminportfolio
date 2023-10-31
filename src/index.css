@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  font: inherit;
+}
+
+
+:root {
+  font-family: Libre Franklin, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: #242424;
+  background-color: #fff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  //margin: 0 auto;
+  //box-sizing: border-box;
+  text-align: center;
+}
+
+a {
+  font-weight: 500;
+  color: #242424;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #343ca8;
+}
+
+body {
+  /*min-width: 320px;*/
+  /*min-height: 100vh;*/
+  /*margin: 0;*/
+  /*box-sizing: border-box;*/
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+
+  scrollbar-color: rgba(36, 36, 36, 0.3) rgba(36, 36, 36, 0.7);
+  scrollbar-width: thin;
+}
+
+/*.app {*/
+/*  width: 100%;*/
+/*  max-width: 1920px;*/
+/*  min-width: 320px;*/
+/*  max-height: 100vh;*/
+/*  min-height: 100vh;*/
+/*}*/
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #000;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 0;
+  border-radius: 9em;
+  background-color: rgba(36, 36, 36, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 10px;
+  background-color: rgba(36, 36, 36, 0.7);
+  border-radius: 9em;
+  box-shadow: inset 1px 1px 10px rgba(36, 36, 36, 0.7);
+}
