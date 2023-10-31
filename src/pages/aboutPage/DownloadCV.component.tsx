@@ -1,6 +1,6 @@
 import PictureAsPdfRoundedIcon from '@mui/icons-material/PictureAsPdfRounded';
 import CV_ELmin_eng from '../../assets/files/CV_ELmin_eng.pdf';
-import CV_ELmin_rus from '../../assets/files/CV_ELmin_rus.pdf';
+import CV_ELmin_rus from '../../assets/files/CV_Elmin_rus.pdf';
 
 import {Title} from '../../components/title';
 
