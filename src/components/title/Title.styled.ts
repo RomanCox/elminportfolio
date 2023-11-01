@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface TitleStyledPropsType {
-    color: string,
+    color: string;
 }
 
 export const TitleH1Styled = styled.h1<TitleStyledPropsType>`

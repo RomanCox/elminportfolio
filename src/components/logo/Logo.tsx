@@ -14,16 +14,16 @@ import {
 export type VariantType = 'black' | 'white';
 
 export interface LogoShowType {
-	$show: boolean,
-	color: VariantType,
-	size: string,
-	$homePage: boolean,
+	$show: boolean;
+	color: VariantType;
+	size: string;
+	$homePage: boolean;
 }
 
 export interface LogoPropsType {
-	variant: VariantType,
-	size?: string,
-	homePage?: boolean,
+	variant: VariantType;
+	size?: string;
+	homePage?: boolean;
 }
 
 export const Logo = ({variant, size = 'small', homePage = false}: LogoPropsType) => {

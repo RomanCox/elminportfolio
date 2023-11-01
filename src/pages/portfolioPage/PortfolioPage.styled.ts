@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
 interface NavigationItemStyledPropsType {
-    $isActive: boolean,
+    $isActive: boolean;
 }
 
 interface VideoContainerPropsType {
-    $image: string,
-    $width: number,
-    $height: number,
+    $image: string;
+    $width: number;
+    $height: number;
+}
+
+interface ImagePropsType {
+    jpg: string;
+    png: string;
+    webp: string;
 }
 
 export const PortfolioPageContainerStyled = styled.div`
@@ -116,9 +122,42 @@ export const VideosContainerStyled = styled.div`
 
 
 export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
-  width: ${({ $width }) => `${$width}px`};
-  height: ${({ $height }) => `${$height}px`};
+  width: ${({$width}) => `${$width}px`};
+  height: ${({$height}) => `${$height}px`};
   border-radius: 15px;
-  background-image: ${({ $image }) => `url(${$image})`};
+  background-image: ${({$image}) => `url(${$image})`};
   background-position: center center;
+`;
+
+export const ModellingContentContainerStyled = styled.div`
+  width: 100%;
+  padding: 0 30px 75px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 50px;
+  overflow-y: auto;
+`;
+
+export const BigImageStyled = styled.img``;
+
+export const ImageStyled = styled.div<ImagePropsType>`
+  width: 300px;
+  height: 300px;
+  background-image: ${({jpg, png, webp}) => `-webkit-image-set(
+  url(${jpg}) type("image/jpg"),
+  url(${png}) type("image/png"),
+  url(${webp}) type("image/webp")
+  )`};
+  background-image: ${({jpg, png, webp}) => `image-set(
+  url(${jpg}) type("image/jpg"),
+  url(${png}) type("image/png"),
+  url(${webp}) type("image/webp")
+  )`};
+  background-size: cover;
+  background-origin: content-box;
+  background-position: center;
+  background-repeat: no-repeat;
 `;

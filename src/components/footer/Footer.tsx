@@ -7,7 +7,7 @@ import {
 } from './Footer.styled.ts';
 
 export interface FooterPropsType {
-    $homePage?: boolean
+    $homePage?: boolean;
 }
 
 export const Footer = ({$homePage = false}: FooterPropsType) => <FooterContainerStyled $homePage={$homePage}>

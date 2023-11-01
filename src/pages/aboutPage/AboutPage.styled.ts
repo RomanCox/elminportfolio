@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 interface NavigationItemStyledPropsType {
-    $isActive: boolean,
+    $isActive: boolean;
 }
 
 interface GradientStyledPropsType {
-    $reverse?: boolean,
+    $reverse?: boolean;
 }
 
 export const AboutPageContainerStyled = styled.div`

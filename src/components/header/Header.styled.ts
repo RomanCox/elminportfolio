@@ -5,7 +5,11 @@ import {NavLink} from 'react-router-dom';
 import {type BurgerStyledPropsType} from './BurgerButton.tsx';
 
 interface HeaderPropsType {
-    $homePage?: boolean,
+    $homePage?: boolean;
+}
+
+interface WidthPropsType {
+	$width?: number;
 }
 
 export const HeaderContainerStyled = styled.div<HeaderPropsType>`
@@ -26,6 +30,10 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   @media screen and (max-width: 899px) {
     align-items: center;
   }
+`;
+
+export const BurgerButtonContainerStyled = styled.div<WidthPropsType>`
+  width: ${({ $width }) => $width ? `${$width}px` : 'auto'};
 `;
 
 export const BurgerButtonStyled = styled.div`

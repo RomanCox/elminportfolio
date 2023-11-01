@@ -5,21 +5,21 @@ import {AboutContent} from './AboutContent.component.tsx';
 import {AllContentContainerStyled, AllContentWrapperStyled, GradientStripeStyled} from './AboutPage.styled.ts';
 
 interface AboutChapterItemType {
-	id: number,
-	year: string,
-	title: string,
-	description: string[],
+	id: number;
+	year: string;
+	title: string;
+	description: string[];
 }
 
 export interface AboutChapterType {
-	id: number,
-	label: string,
-	items: AboutChapterItemType[]
+	id: number;
+	label: string;
+	items: AboutChapterItemType[];
 }
 
 export interface AboutContentPropsType {
-    activeChapter: string,
-	chapters: AboutChapterType[],
+    activeChapter: string;
+	chapters: AboutChapterType[];
 }
 
 export const AboutContentContainer = ({activeChapter, chapters}: AboutContentPropsType) => {

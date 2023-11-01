@@ -5,9 +5,9 @@ import {
 } from './Modal.styled.ts';
 
 export interface ModalPropsType {
-    children: ReactNode,
-    closeModal: () => void,
-    modalActive: boolean,
+    children: ReactNode;
+    closeModal: () => void;
+    modalActive: boolean;
 }
 
 export const Modal = ({children, closeModal, modalActive}: ModalPropsType) => {

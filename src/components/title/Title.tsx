@@ -10,9 +10,9 @@ import {
 export type VariantType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export interface TitlePropsType {
-    variant: VariantType,
-    text: string,
-    color: string,
+    variant: VariantType;
+    text: string;
+    color: string;
 }
 
 export const Title = ({variant, text, color}: TitlePropsType) => {

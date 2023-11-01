@@ -10,46 +10,46 @@ import {
 } from './PortfolioPage.styled.ts';
 
 interface VideoContentDetailsType {
-	videoId: string,
-	videoPublishedAt: string,
+	videoId: string;
+	videoPublishedAt: string;
 }
 
 interface ThumbnailType {
-	width: number,
-	height: number,
-	url: string,
+	width: number;
+	height: number;
+	url: string;
 }
 
 interface ThumbnailsType {
-	default: ThumbnailType,
-	high: ThumbnailType,
-	maxRes: ThumbnailType,
-	medium: ThumbnailType,
-	standard: ThumbnailType,
+	default: ThumbnailType;
+	high: ThumbnailType;
+	maxRes: ThumbnailType;
+	medium: ThumbnailType;
+	standard: ThumbnailType;
 }
 
 interface VideoSnippetType {
-	channelId: string,
-	channelTitle: string,
-	description: string,
-	playlistId: string,
-	position: number,
-	publishedAt: string,
-	resourceId: { kind: string, videoId: string },
-	thumbnails: ThumbnailsType,
-	title: string,
-	videoOwnerChannelId: string,
-	videoOwnerChannelTitle: string,
+	channelId: string;
+	channelTitle: string;
+	description: string;
+	playlistId: string;
+	position: number;
+	publishedAt: string;
+	resourceId: { kind: string, videoId: string };
+	thumbnails: ThumbnailsType;
+	title: string;
+	videoOwnerChannelId: string;
+	videoOwnerChannelTitle: string;
 }
 
 export interface VideoContextType {
-	id: string,
-	chapter: string,
-	contentDetails: VideoContentDetailsType,
-	snippet: VideoSnippetType,
+	id: string;
+	chapter: string;
+	contentDetails: VideoContentDetailsType;
+	snippet: VideoSnippetType;
 }
 
-export const PortfolioContent = () => {
+export const VideoContent = () => {
 	const [modalIsShow, setModalIsShow] = useState<boolean>(false);
 	const [videos, setVideos] = useState<VideoContextType[]>([]);
 	const [videoInModal, setVideoInModal] = useState<string>('');

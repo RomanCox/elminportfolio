@@ -3,8 +3,8 @@ import {PATH} from '../../App.tsx';
 import {MenuContainerStyled, NavbarItemStyled, NavbarStyled} from './BurgerMenu.styled.ts';
 
 interface BurgerMenuPropsType {
-    menuIsShow: boolean,
-    homePage?: boolean,
+    menuIsShow: boolean;
+    homePage?: boolean;
 }
 
 export const BurgerMenu = ({menuIsShow, homePage = false}: BurgerMenuPropsType) =>

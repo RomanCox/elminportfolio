@@ -19,10 +19,10 @@ import {
 } from './AboutPage.styled.ts';
 
 interface AboutNavigationPropsType {
-    activeChapter: string,
-    chooseChapter: (value: string) => void,
-    openModal: () => void,
-	chapters: AboutChapterType[],
+    activeChapter: string;
+    chooseChapter: (value: string) => void;
+    openModal: () => void;
+	chapters: AboutChapterType[];
 }
 
 export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapters}: AboutNavigationPropsType) => {

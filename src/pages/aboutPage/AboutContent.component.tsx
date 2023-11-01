@@ -15,8 +15,8 @@ import {
 } from './AboutPage.styled.ts';
 
 interface AboutContentPropsType {
-    chapter: AboutChapterType,
-    activeChapter: string,
+    chapter: AboutChapterType;
+    activeChapter: string;
 }
 
 export const AboutContent = ({chapter, activeChapter}: AboutContentPropsType) => {

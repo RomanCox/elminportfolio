@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 import {useWindowSize} from '../../hooks/useWindowSize.ts';
 
@@ -9,22 +9,23 @@ import {PATH} from '../../App.tsx';
 import {BurgerButton} from './BurgerButton.tsx';
 
 import {
-	BottomLineStyled,
 	HeaderContainerStyled,
+	BurgerButtonContainerStyled,
+	LogoContainerStyled,
+	SocialLinksAndLangContainerStyled,
+	SocialLinksContainerStyled,
 	LangContainerStyled,
 	LangStyled,
-	LogoContainerStyled,
 	NavbarItemStyled,
 	NavbarStyled,
 	SeparatorStyled,
-	SocialLinksAndLangContainerStyled,
-	SocialLinksContainerStyled,
+	BottomLineStyled,
 } from './Header.styled.ts';
 
 interface HeaderPropsType {
-    menuIsShow?: boolean,
-    menuSwitch?: () => void,
-    homePage?: boolean,
+    menuIsShow?: boolean;
+    menuSwitch?: () => void;
+    homePage?: boolean;
 }
 
 export const Header = ({
@@ -33,8 +34,11 @@ export const Header = ({
 	homePage = false,
 }: HeaderPropsType) => {
 	const [isShowBurgerButton, setIsShowBurgerButton] = useState<boolean>(false);
+	const [width, setWidth] = useState<number>(0);
 
 	const windowSize = useWindowSize();
+
+	const div = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (windowSize.width && windowSize.width >= 900) {
@@ -45,15 +49,23 @@ export const Header = ({
 		}
 	}, [windowSize.width]);
 
+	useEffect(() => {
+		if (div && div.current) {
+			setWidth(div.current.offsetWidth)
+		}
+	}, [div, div.current]);
+
 	return (
 		<HeaderContainerStyled $homePage={homePage}>
 			{homePage
 				? <>
-					<BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
+					<BurgerButtonContainerStyled $width={width}>
+						<BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
+					</BurgerButtonContainerStyled>
 					<LogoContainerStyled to={PATH.HOME} $homePage>
 						<Logo variant='white' homePage/>
 					</LogoContainerStyled>
-					<SocialLinksAndLangContainerStyled>
+					<SocialLinksAndLangContainerStyled ref={div}>
 						<SocialLinksContainerStyled>
 							<IconSet/>
 						</SocialLinksContainerStyled>

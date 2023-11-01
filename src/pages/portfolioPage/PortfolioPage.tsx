@@ -5,8 +5,8 @@ import {Header} from '../../components/header';
 
 import {Footer} from '../../components/footer';
 
-import {PortfolioNavigation} from './PortfolioNavigation.component.tsx';
-import {PortfolioContent} from './PortfolioContent.component.tsx';
+import {PortfolioNavigation} from './PortfolioNavigation.tsx';
+import {PortfolioContent} from './PortfolioContent.tsx';
 
 import {PortfolioPageContainerStyled} from './PortfolioPage.styled.ts';
 
@@ -27,7 +27,7 @@ const PortfolioPage = () => {
 			<BurgerMenu menuIsShow={menuIsShow}/>
 			<Header menuIsShow={menuIsShow} menuSwitch={menuSwitch}/>
 			<PortfolioNavigation activeChapter={activeChapter} chooseChapter={chooseChapter}/>
-			<PortfolioContent/>
+			<PortfolioContent activeChapter={activeChapter}/>
 			<Footer/>
 		</PortfolioPageContainerStyled>
 	);

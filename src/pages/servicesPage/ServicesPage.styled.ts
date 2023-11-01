@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ServiceDescriptionStyledPropsType {
-    $first: boolean,
+    $first: boolean;
 }
 
 export const ServicesPageContainerStyled = styled.div`

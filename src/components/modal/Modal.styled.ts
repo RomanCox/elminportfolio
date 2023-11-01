@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface ModalStyledPropsType {
-    $isAnimation: boolean,
+    $isAnimation: boolean;
 }
 
 export const ModalWrapperStyled = styled.div<ModalStyledPropsType>`

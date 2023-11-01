@@ -12,8 +12,8 @@ import {
 } from './PortfolioPage.styled.ts';
 
 interface AboutNavigationPropsType {
-    activeChapter: string,
-    chooseChapter: (value: string) => void,
+    activeChapter: string;
+    chooseChapter: (value: string) => void;
 }
 
 export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigationPropsType) => {

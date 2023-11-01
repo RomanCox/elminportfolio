@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 interface HomePagePropsType {
-    $homePage: boolean,
+    $homePage: boolean;
 }
 
 interface MenuContainerStyledPropsType {
-    $menuIsShow: boolean,
+    $menuIsShow: boolean;
 }
 
 export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & HomePagePropsType>`
