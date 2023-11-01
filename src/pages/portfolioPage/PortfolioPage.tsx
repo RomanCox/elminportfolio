@@ -10,21 +10,23 @@ import {PortfolioContent} from './PortfolioContent.tsx';
 
 import {PortfolioPageContainerStyled} from './PortfolioPage.styled.ts';
 
+export type ActiveChapterType = 'View All' | 'Interactive & Animation' | '3D Modeling & Visualization';
+
 const PortfolioPage = () => {
-	const [activeChapter, setActiveChapter] = useState<string>('View All');
+	const [activeChapter, setActiveChapter] = useState<ActiveChapterType>('View All');
 	const [menuIsShow, setMenuIsShow] = useState<boolean>(false);
 
 	const menuSwitch = () => {
 		setMenuIsShow(!menuIsShow);
 	};
 
-	const chooseChapter = (value: string) => {
+	const chooseChapter = (value: ActiveChapterType) => {
 		setActiveChapter(value);
 	};
 
 	return (
 		<PortfolioPageContainerStyled>
-			<BurgerMenu menuIsShow={menuIsShow}/>
+			{menuIsShow && <BurgerMenu menuIsShow={menuIsShow}/>}
 			<Header menuIsShow={menuIsShow} menuSwitch={menuSwitch}/>
 			<PortfolioNavigation activeChapter={activeChapter} chooseChapter={chooseChapter}/>
 			<PortfolioContent activeChapter={activeChapter}/>

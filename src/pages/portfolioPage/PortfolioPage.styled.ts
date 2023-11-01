@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {ScrollPropsType} from './PortfolioContent.tsx';
 
 interface NavigationItemStyledPropsType {
     $isActive: boolean;
@@ -108,7 +109,16 @@ export const DescriptionContainerStyled = styled.div`
   user-select: none;
 `;
 
-export const VideosContainerStyled = styled.div`
+export const AllContentContainerStyled = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  overflow-y: auto;
+`;
+
+export const VideosContainerStyled = styled.div<ScrollPropsType>`
   width: 100%;
   padding: 0 30px 75px;
   box-sizing: border-box;
@@ -117,7 +127,7 @@ export const VideosContainerStyled = styled.div`
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 50px;
-  overflow-y: auto;
+  overflow-y: ${({ isScroll = true }) => isScroll ? 'visible' : 'auto'};
 `;
 
 
@@ -129,16 +139,16 @@ export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
   background-position: center center;
 `;
 
-export const ModellingContentContainerStyled = styled.div`
+export const ModellingContentContainerStyled = styled.div<ScrollPropsType>`
   width: 100%;
   padding: 0 30px 75px;
   box-sizing: border-box;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 50px;
-  overflow-y: auto;
+  overflow-y: ${({ isScroll = true }) => isScroll ? 'visible' : 'auto'};
 `;
 
 export const BigImageStyled = styled.img``;

@@ -6,4 +6,5 @@ export const AppContainerStyled = styled.div`
   min-width: 320px;
   max-height: 100vh;
   min-height: 100vh;
+  margin: 0 auto;
 `;

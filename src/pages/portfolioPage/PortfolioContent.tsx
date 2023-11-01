@@ -1,18 +1,26 @@
 import {VideoContent} from './VideoContent.tsx';
 import {ModellingContent} from './ModellingContent.tsx';
-import {VRContent} from './VRContent.tsx';
+
+import {AllContentContainerStyled} from './PortfolioPage.styled.ts';
 
 interface PortfolioContentPropsType {
     activeChapter: string;
+}
+
+export interface ScrollPropsType {
+    isScroll?: boolean;
 }
 
 export const PortfolioContent = ({activeChapter}: PortfolioContentPropsType) => {
 
     return (
         <>{
-            activeChapter === 'Interactive & Animation' ? <VideoContent/>
-                : activeChapter === '3D Modeling & Visualization' ? <ModellingContent/>
-                    : <VRContent/>
+            activeChapter === 'Interactive & Animation' ? <VideoContent />
+                : activeChapter === '3D Modeling & Visualization' ? <ModellingContent />
+                    : <AllContentContainerStyled>
+                        <VideoContent isScroll={activeChapter === 'View All'}/>
+                        <ModellingContent isScroll={activeChapter === 'View All'}/>
+                    </AllContentContainerStyled>
         }</>
 
     );

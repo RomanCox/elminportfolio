@@ -76,7 +76,6 @@ import headphones2WEBP from '../../assets/images/portfolio/modelling/headphones2
 import inverterJPG from '../../assets/images/portfolio/modelling/inverter.jpg';
 import inverterPNG from '../../assets/images/portfolio/modelling/inverter.png';
 import inverterWEBP from '../../assets/images/portfolio/modelling/inverter.webp';
-
 import ottoman1JPG from '../../assets/images/portfolio/modelling/ottoman1.jpg';
 import ottoman1PNG from '../../assets/images/portfolio/modelling/ottoman1.png';
 import ottoman1WEBP from '../../assets/images/portfolio/modelling/ottoman1.webp';
@@ -117,9 +116,10 @@ import tvStand3JPG from '../../assets/images/portfolio/modelling/tvstand3.jpg';
 import tvStand3PNG from '../../assets/images/portfolio/modelling/tvstand3.png';
 import tvStand3WEBP from '../../assets/images/portfolio/modelling/tvstand3.webp';
 
+import {ScrollPropsType} from './PortfolioContent.tsx';
 import {BigImageStyled, ImageStyled, ModellingContentContainerStyled} from './PortfolioPage.styled.ts';
 
-export const ModellingContent = () => {
+export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
     const [modalIsShow, setModalIsShow] = useState<boolean>(false);
     const [imageInModal, setImageInModal] = useState<number | null>(null);
 
@@ -365,7 +365,7 @@ export const ModellingContent = () => {
     ]
 
     return (
-        <ModellingContentContainerStyled>
+        <ModellingContentContainerStyled isScroll={isScroll}>
             {modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
                 <picture>
                     <source type={'image/webp'} srcSet={content.filter(pic => pic.id === imageInModal)[0].imageWEBP}/>
