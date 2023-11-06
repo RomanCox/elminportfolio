@@ -1,18 +1,18 @@
 interface VideoContentDetailsType {
     videoId: string;
-    videoPublishedAt: string;
+    videoPublishedAt?: string;
 }
 
 export interface VideoType {
+    id: string;
     contentDetails: VideoContentDetailsType;
     etag: string;
-    id: string;
     kind: string;
 }
 
 export interface VideosFromPLResponseType {
-    etag: string;
     id: string;
+    etag: string;
     kind: string;
     items: VideoType[];
 }
@@ -23,6 +23,7 @@ interface PageInfoType {
 }
 
 interface ChannelType {
+    id: string;
     contentDetails: {
         relatedPlaylists: {
             likes: string;
@@ -30,13 +31,44 @@ interface ChannelType {
         },
     }
     etag: string;
-    id: string;
     kind: string;
 }
 
 export interface PlaylistIDResponseType {
     etag: string;
     items: ChannelType[];
+    kind: string;
+    pageInfo: PageInfoType;
+}
+
+interface ItemSnippetType {
+    channelId: string;
+    channelTitle: string;
+    description: string;
+    playlistId: string;
+    position: number;
+    publishedAt: string;
+    resourceId: {
+        kind: string;
+        videoId: string;
+    }
+    thumbnails: ThumbnailsType;
+    title: string;
+    videoOwnerChannelId: string;
+    videoOwnerChannelTitle: string;
+}
+
+export interface ItemType {
+    id: string;
+    etag: string;
+    kind: string;
+    contentDetails: VideoContentDetailsType;
+    snippet: ItemSnippetType;
+}
+
+export interface PlaylistResponseType {
+    etag: string;
+    items: ItemType[];
     kind: string;
     pageInfo: PageInfoType;
 }
@@ -53,7 +85,6 @@ interface ThumbnailsType {
     maxres: ThumbnailType;
     medium: ThumbnailType;
     standard: ThumbnailType;
-    title: string;
 }
 
 interface SnippetType {
@@ -69,8 +100,8 @@ interface SnippetType {
 }
 
 interface VideoSnippetType {
-    etag: string;
     id: string;
+    etag: string;
     kind: string;
     snippet: SnippetType;
 }

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import {ScrollPropsType} from './PortfolioContent.tsx';
+import ArrowForwardIosRoundedIcon from '@mui/icons-material/ArrowForwardIosRounded';
+import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 
 interface NavigationItemStyledPropsType {
     $isActive: boolean;
@@ -7,8 +8,10 @@ interface NavigationItemStyledPropsType {
 
 interface VideoContainerPropsType {
     $image: string;
-    $width: number;
-    $height: number;
+}
+
+export interface ScrollStyledPropsType {
+    $isScroll?: boolean;
 }
 
 interface ImagePropsType {
@@ -118,37 +121,60 @@ export const AllContentContainerStyled = styled.div`
   overflow-y: auto;
 `;
 
-export const VideosContainerStyled = styled.div<ScrollPropsType>`
+export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
   width: 100%;
   padding: 0 30px 75px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 50px;
-  overflow-y: ${({ isScroll = true }) => isScroll ? 'visible' : 'auto'};
+  gap: 5px;
+  overflow-y: ${({ $isScroll = true }) => $isScroll ? 'visible' : 'auto'};
 `;
 
 
 export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
-  width: ${({$width}) => `${$width}px`};
-  height: ${({$height}) => `${$height}px`};
+  width: 912px;
+  height: 513px;
   border-radius: 15px;
   background-image: ${({$image}) => `url(${$image})`};
   background-position: center center;
+  background-size: cover;
+  cursor: pointer;
+
+  @media screen and (max-width: 1920px) {
+    width: 47.5vw;
+    height: 26.72vw;
+  }
 `;
 
-export const ModellingContentContainerStyled = styled.div<ScrollPropsType>`
+export const ModellingContentContainerStyled = styled.div<ScrollStyledPropsType>`
   width: 100%;
   padding: 0 30px 75px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 50px;
-  overflow-y: ${({ isScroll = true }) => isScroll ? 'visible' : 'auto'};
+  gap: 5px;
+  overflow-y: ${({ $isScroll = true }) => $isScroll ? 'visible' : 'auto'};
+`;
+
+export const BackArrowStyled = styled(ArrowBackIosRoundedIcon)`
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+
+export const ForwardArrowStyled = styled(ArrowForwardIosRoundedIcon)`
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
 `;
 
 export const BigImageStyled = styled.img``;
@@ -157,17 +183,22 @@ export const ImageStyled = styled.div<ImagePropsType>`
   width: 300px;
   height: 300px;
   background-image: ${({jpg, png, webp}) => `-webkit-image-set(
-  url(${jpg}) type("image/jpg"),
-  url(${png}) type("image/png"),
-  url(${webp}) type("image/webp")
+  url(${jpg}) type('image/jpg'),
+  url(${png}) type('image/png'),
+  url(${webp}) type('image/webp')
   )`};
   background-image: ${({jpg, png, webp}) => `image-set(
-  url(${jpg}) type("image/jpg"),
-  url(${png}) type("image/png"),
-  url(${webp}) type("image/webp")
+  url(${jpg}) type('image/jpg'),
+  url(${png}) type('image/png'),
+  url(${webp}) type('image/webp')
   )`};
   background-size: cover;
   background-origin: content-box;
   background-position: center;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 1920px) {
+    width: 15vw;
+    height: 15vw;
+  }
 `;

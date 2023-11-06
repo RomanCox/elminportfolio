@@ -6,52 +6,11 @@ import {Modal} from '../../components/modal';
 
 import {ScrollPropsType} from './PortfolioContent.tsx';
 import {VideoContainerStyled, VideosContainerStyled,} from './PortfolioPage.styled.ts';
-
-interface VideoContentDetailsType {
-    videoId: string;
-    videoPublishedAt: string;
-}
-
-interface ThumbnailType {
-    width: number;
-    height: number;
-    url: string;
-}
-
-interface ThumbnailsType {
-    default: ThumbnailType;
-    high: ThumbnailType;
-    maxRes: ThumbnailType;
-    medium: ThumbnailType;
-    standard: ThumbnailType;
-}
-
-interface VideoSnippetType {
-    channelId: string;
-    channelTitle: string;
-    description: string;
-    playlistId: string;
-    position: number;
-    publishedAt: string;
-    resourceId: { kind: string, videoId: string };
-    thumbnails: ThumbnailsType;
-    title: string;
-    videoOwnerChannelId: string;
-    videoOwnerChannelTitle: string;
-}
-
-export interface VideoContextType {
-    id: string;
-    chapter: string;
-    contentDetails: VideoContentDetailsType;
-    snippet: VideoSnippetType;
-}
-
-
+import {ItemType} from "../../api/youtubeAPI.types.ts";
 
 export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
     const [modalIsShow, setModalIsShow] = useState<boolean>(false);
-    const [videos, setVideos] = useState<VideoContextType[]>([]);
+    const [videos, setVideos] = useState<ItemType[]>([]);
     const [videoInModal, setVideoInModal] = useState<string>('');
 
     const openModal = (id: string) => {
@@ -75,12 +34,13 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
     useEffect(() => {
         getPlaylist()
             .then(res => {
-                if (res) setVideos(res.data.items);
+                if (res) setVideos(res.data.items.filter(video => video.snippet.title !== 'Deleted video'));
             });
     }, []);
 
+
     return (
-        <VideosContainerStyled isScroll={isScroll}>
+        <VideosContainerStyled $isScroll={isScroll}>
             {videos.length && modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
                 <iframe
                     width='560' height='315'
@@ -91,14 +51,16 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
                 />
             </Modal>}
             {videos.length
-                ? videos.map(video =>
-                    <VideoContainerStyled
+                ? videos.map(video => {
+                    //const coefficient = video.snippet.thumbnails.standard.width / video.snippet.thumbnails.high.height;
+                    console.log('coefficient = 1.7777777')
+
+                    return (<VideoContainerStyled
                         key={video.id}
                         $image={video.snippet.thumbnails.standard?.url ? video.snippet.thumbnails.standard.url : ''}
-                        $width={video.snippet.thumbnails.standard?.width ? video.snippet.thumbnails.standard.width : 0}
-                        $height={video.snippet.thumbnails.high?.height ? video.snippet.thumbnails.high.height : 0}
                         onClick={() => openModal(video.id)}
-                    />
+                    />)
+                    }
                 )
                 : null
             }
