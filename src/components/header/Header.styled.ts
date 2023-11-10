@@ -18,7 +18,8 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   padding: 20px 30px 15px;
   position: fixed;
   top: 0;
-  left: 50%;
+  // left: 50%;
+  left: 50vw;
   transform: translateX(-50%);
   z-index: 2;
   display: flex;

@@ -1,7 +1,4 @@
 import {useState} from 'react';
-import {Header} from '../../components/header';
-import {BurgerMenu} from '../../components/burgerMenu';
-import {Footer} from '../../components/footer';
 import {Modal} from '../../components/modal';
 import {AboutContentContainer} from './AboutContent.container.tsx';
 import {AboutNavigation} from './AboutNavigation.component.tsx';
@@ -12,7 +9,6 @@ import {AboutPageContainerStyled} from './AboutPage.styled.ts';
 const AboutPage = () => {
 	const [activeChapter, setActiveChapter] = useState<string>('Education');
 	const [modalIsShow, setModalIsShow] = useState<boolean>(false);
-	const [menuIsShow, setMenuIsShow] = useState<boolean>(false);
 
 	const chapters = [
 		{
@@ -172,10 +168,6 @@ const AboutPage = () => {
 		},
 	]
 
-	const menuSwitch = () => {
-		setMenuIsShow(!menuIsShow);
-	};
-
 	const chooseChapter = (value: string) => {
 		setActiveChapter(value);
 	};
@@ -191,11 +183,8 @@ const AboutPage = () => {
 	return (
 		<AboutPageContainerStyled>
 			{modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}> <DownloadCV/> </Modal>}
-			<BurgerMenu menuIsShow={menuIsShow}/>
-			<Header menuIsShow={menuIsShow} menuSwitch={menuSwitch}/>
 			<AboutNavigation activeChapter={activeChapter} chooseChapter={chooseChapter} openModal={openModal} chapters={chapters}/>
 			<AboutContentContainer activeChapter={activeChapter} chapters={chapters}/>
-			<Footer/>
 		</AboutPageContainerStyled>
 	);
 };

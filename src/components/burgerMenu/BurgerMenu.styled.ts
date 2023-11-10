@@ -9,10 +9,16 @@ interface MenuContainerStyledPropsType {
     $menuIsShow: boolean;
 }
 
+export const WrapperStyled = styled.div`
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+`;
+
 export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & HomePagePropsType>`
-  width: 400px;
+  width: 115px;
   height: 100vh;
-  padding: 130px 30px;
+  padding: 130px 0 130px 30px;
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -24,9 +30,9 @@ export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & Hom
   align-items: flex-start;
   opacity: ${({ $menuIsShow }) => $menuIsShow ? '1' : '0'};
   transform: ${({ $menuIsShow, $homePage }) => $menuIsShow
-		? 'translateX(0)'
-		: $homePage ? 'translateX(-100%)' : 'translateX(100%)'
-};
+          ? 'translateX(0)'
+          : $homePage ? 'translateX(-100%)' : 'translateX(100%)'
+  };
   transition: all 0.5s ease-in-out 0s;
 `;
 

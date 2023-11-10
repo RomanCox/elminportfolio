@@ -31,6 +31,7 @@ export const PortfolioPageContainerStyled = styled.div`
   justify-content: flex-start;
   align-items: center;
   background: #fff;
+  position: relative;
   overflow: hidden;
 `;
 
@@ -73,7 +74,6 @@ export const NavigationItemsContainerStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  overflow-x: scroll;
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
@@ -119,6 +119,7 @@ export const AllContentContainerStyled = styled.div`
   flex-direction: column;
   gap: 50px;
   overflow-y: auto;
+  scrollbar-width: thin;
 `;
 
 export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
@@ -131,27 +132,26 @@ export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
   flex-wrap: wrap;
   gap: 5px;
   overflow-y: ${({ $isScroll = true }) => $isScroll ? 'visible' : 'auto'};
+  scrollbar-width: thin;
 `;
 
 
 export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
-  width: 912px;
-  height: 513px;
+  width: calc((100vw - 85px) / 2);
+  max-width: 925px;
+  height: calc((100vw - 85px) / 3.555);
+  max-height: 520px;
   border-radius: 15px;
   background-image: ${({$image}) => `url(${$image})`};
   background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
   cursor: pointer;
-
-  @media screen and (max-width: 1920px) {
-    width: 47.5vw;
-    height: 26.72vw;
-  }
 `;
 
 export const ModellingContentContainerStyled = styled.div<ScrollStyledPropsType>`
   width: 100%;
-  padding: 0 30px 75px;
+  padding: 0 30px 0; // TODO refactor padding-bottom
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
@@ -159,6 +159,7 @@ export const ModellingContentContainerStyled = styled.div<ScrollStyledPropsType>
   flex-wrap: wrap;
   gap: 5px;
   overflow-y: ${({ $isScroll = true }) => $isScroll ? 'visible' : 'auto'};
+  scrollbar-width: thin;
 `;
 
 export const BackArrowStyled = styled(ArrowBackIosRoundedIcon)`
@@ -180,8 +181,10 @@ export const ForwardArrowStyled = styled(ArrowForwardIosRoundedIcon)`
 export const BigImageStyled = styled.img``;
 
 export const ImageStyled = styled.div<ImagePropsType>`
-  width: 300px;
-  height: 300px;
+  width: calc((100vw - 100px) / 5);
+  max-width: 364px;
+  height: calc((100vw - 100px) / 5);
+  max-height: 364px;
   background-image: ${({jpg, png, webp}) => `-webkit-image-set(
   url(${jpg}) type('image/jpg'),
   url(${png}) type('image/png'),
@@ -196,9 +199,4 @@ export const ImageStyled = styled.div<ImagePropsType>`
   background-origin: content-box;
   background-position: center;
   background-repeat: no-repeat;
-
-  @media screen and (max-width: 1920px) {
-    width: 15vw;
-    height: 15vw;
-  }
 `;

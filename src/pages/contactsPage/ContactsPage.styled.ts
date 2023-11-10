@@ -12,6 +12,7 @@ export const ContactsPageContainerStyled = styled.div`
   align-items: center;
   background: #fff;
   position: relative;
+  overflow: hidden;
 `;
 
 export const TitleContainerStyled = styled.div`
@@ -37,6 +38,7 @@ export const AllContactsContainerStyled = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   gap: 50px;
+  overflow: auto;
 
   @media screen and (max-width: 509px) {
     width: 100%;

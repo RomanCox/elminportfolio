@@ -395,7 +395,6 @@ export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
             setImageInModal(content.length);
 
         } else {
-            console.log('-1');
             setImageInModal(prev => prev - 1);
         }
     }
@@ -404,10 +403,8 @@ export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
         e.stopPropagation();
         if (imageInModal === content.length) {
             setImageInModal(1);
-            console.log('first');
         } else {
             setImageInModal(prev => prev + 1);
-            console.log('+1');
         }
     }
 

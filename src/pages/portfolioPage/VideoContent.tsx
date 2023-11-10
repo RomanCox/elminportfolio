@@ -34,7 +34,7 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
     useEffect(() => {
         getPlaylist()
             .then(res => {
-                if (res) setVideos(res.data.items.filter(video => video.snippet.title !== 'Deleted video'));
+                if (res) setVideos(res.data.items.filter(video => video.snippet.title !== 'Deleted video' && video.snippet.title !== 'Private video'));
             });
     }, []);
 
@@ -51,16 +51,12 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
                 />
             </Modal>}
             {videos.length
-                ? videos.map(video => {
-                    //const coefficient = video.snippet.thumbnails.standard.width / video.snippet.thumbnails.high.height;
-                    console.log('coefficient = 1.7777777')
-
-                    return (<VideoContainerStyled
+                ? videos.map(video =>
+                    <VideoContainerStyled
                         key={video.id}
                         $image={video.snippet.thumbnails.standard?.url ? video.snippet.thumbnails.standard.url : ''}
                         onClick={() => openModal(video.id)}
-                    />)
-                    }
+                    />
                 )
                 : null
             }

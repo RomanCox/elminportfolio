@@ -20,7 +20,7 @@ export const AboutPageContainerStyled = styled.div`
   align-items: center;
   background: #fff;
   position: relative;
-  overflow-x: hidden;
+  overflow: hidden;
 `;
 
 export const CVDownloadMenuContainerStyled = styled.div`
@@ -83,16 +83,22 @@ export const NavigationContainerStyled = styled.div`
 `;
 
 export const TitleContainerStyled = styled.div`
+  min-width: 170px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-end;
   position: relative;
   font-family: Libre Franklin, sans-serif;
   font-size: 56px;
-  line-height: 67px;
+  line-height: 64px;
   font-weight: 700;
   text-align: center;
   user-select: none;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 32px;
+    line-height: 36px;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -152,7 +158,6 @@ export const NavigationItemsContainerStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  overflow-x: scroll;
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
@@ -312,7 +317,6 @@ export const AllContentContainerStyled = styled.div`
   align-items: flex-start;
   overflow-y: auto;
   scrollbar-width: thin;
-  scrollbar-color: rgba(36, 36, 36, 0.3) rgba(36, 36, 36, 0.7);
 `;
 
 export const ContentContainerStyled = styled.div`
@@ -337,6 +341,11 @@ export const ContentTitleContainerStyled = styled.div`
   font-weight: 700;
   text-align: left;
   user-select: none;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 30px;
+    line-height: 34px;
+  }
 `;
 
 export const EducationContainerStyled = styled.div`

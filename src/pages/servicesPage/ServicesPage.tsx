@@ -1,5 +1,3 @@
-import {Header} from '../../components/header';
-import {Footer} from '../../components/footer';
 import {Title} from '../../components/title';
 
 import animationInteriorsPNG from '../../assets/images/services/3dAnimationInteriors.png';
@@ -18,7 +16,6 @@ import interactiveWalkthroughPNG from '../../assets/images/services/interactiveW
 import interactiveWalkthroughWEBP from '../../assets/images/services/interactiveWalkthrough.webp';
 import vrPNG from '../../assets/images/services/vr.png';
 import vrWEBP from '../../assets/images/services/vr.webp';
-
 
 import {
     ContextContainerStyled,
@@ -140,13 +137,12 @@ const ServicesPage = () => {
 
     return (
         <ServicesPageContainerStyled>
-            <Header/>
             <TitleContainerStyled>
                 <Title variant='h1' color='#000' text={'Services'}/>
             </TitleContainerStyled>
             <ContextContainerStyled>
                 {services.map(service =>
-                    <ServiceContainerStyled>
+                    <ServiceContainerStyled key={service.id}>
                         <picture>
                             <source type={'image/webp'} srcSet={service.imageWEBP}/>
                             <source type={'image/png'} srcSet={service.imagePNG}/>
@@ -164,7 +160,6 @@ const ServicesPage = () => {
                     </ServiceContainerStyled>,
                 )}
             </ContextContainerStyled>
-            <Footer/>
         </ServicesPageContainerStyled>
     );
 };

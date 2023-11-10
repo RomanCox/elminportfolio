@@ -14,6 +14,8 @@ export const ServicesPageContainerStyled = styled.div`
   justify-content: flex-start;
   align-items: center;
   background: #fff;
+  position: relative;
+  overflow: hidden;
 `;
 
 export const TitleContainerStyled = styled.div`
@@ -33,16 +35,19 @@ export const TitleContainerStyled = styled.div`
 export const ContextContainerStyled = styled.div`
   width: 100%;
   max-height: calc(100% - 147px);
-  padding: 30px 30px 50px;
+  padding: 30px 30px 0;
+  margin-bottom: 75px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
-  gap: 100px;
-  overflow-y: auto;
+  overflow: auto;
+  scrollbar-width: thin;
 `;
 
 export const ServiceContainerStyled = styled.div`
+  padding: 20px 0;
   box-sizing: border-box;
   display: flex;
   gap: 50px;

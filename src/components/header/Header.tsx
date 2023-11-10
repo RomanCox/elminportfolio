@@ -56,7 +56,7 @@ export const Header = ({
 	}, [div, div.current]);
 
 	return (
-		<HeaderContainerStyled $homePage={homePage}>
+		<HeaderContainerStyled $homePage={homePage} onClick={menuSwitch}>
 			{homePage
 				? <>
 					<BurgerButtonContainerStyled $width={width}>

@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 import {NavLink} from 'react-router-dom';
 
-import {type FooterPropsType} from './Footer.tsx';
+export interface FooterStyledPropsType {
+    $homePage: boolean;
+}
 
-export const FooterContainerStyled = styled.div<FooterPropsType>`
+export const FooterContainerStyled = styled.div<FooterStyledPropsType>`
   width: 100vw;
   max-width: 1920px;
   height: 75px;
@@ -11,7 +13,8 @@ export const FooterContainerStyled = styled.div<FooterPropsType>`
   box-sizing: border-box;
   position: fixed;
   bottom: 0;
-  left: 50%;
+  // left: 50%;
+  left: 50vw;
   transform: translateX(-50%);
   z-index: 1;
   display: flex;
@@ -20,7 +23,7 @@ export const FooterContainerStyled = styled.div<FooterPropsType>`
   background: ${({ $homePage }) => $homePage ? 'rgba(0, 0, 0, 0.5)' : '#fff'};
 `;
 
-export const LocationContainerStyled = styled.div<FooterPropsType>`
+export const LocationContainerStyled = styled.div<FooterStyledPropsType>`
   color: ${({ $homePage }) => $homePage ? '#fff' : '#000'};
   font-family: Libre Franklin, sans-serif;
   font-size: 20px;

@@ -1,6 +1,7 @@
 import {Suspense} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {MainPageAsync} from './pages/mainPage';
+import {Layout} from './components/layout/Layout.tsx';
 import {HomePageAsync} from './pages/homePage';
 import {AboutPageAsync} from './pages/aboutPage';
 import {PortfolioPageAsync} from './pages/portfolioPage';
@@ -27,11 +28,13 @@ export const App = () => {
             <Suspense fallback={<div>Loading...</div>}>
                 <Routes>
                     <Route path={PATH.MAIN} element={<MainPageAsync/>}/>
-                    <Route path={PATH.HOME} element={<HomePageAsync/>}/>
-                    <Route path={PATH.ABOUT} element={<AboutPageAsync/>}/>
-                    <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync/>}/>
-                    <Route path={PATH.SERVICES} element={<ServicesPageAsync/>}/>
-                    <Route path={PATH.CONTACTS} element={<ContactsPageAsync/>}/>
+                    <Route path={PATH.MAIN} element={<Layout/>}>
+                        <Route path={PATH.HOME} element={<HomePageAsync/>}/>
+                        <Route path={PATH.ABOUT} element={<AboutPageAsync/>}/>
+                        <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync/>}/>
+                        <Route path={PATH.SERVICES} element={<ServicesPageAsync/>}/>
+                        <Route path={PATH.CONTACTS} element={<ContactsPageAsync/>}/>
+                    </Route>
                 </Routes>
             </Suspense>
         </AppContainerStyled>

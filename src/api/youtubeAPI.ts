@@ -10,8 +10,6 @@ const API_KEY = 'AIzaSyBFaXhJJEA4mz6fqbk66sM3Bb9cp55bQo0'; // env
 const CHANNEL_ID = 'UC3w6lpvEkOH6LDl0m_YJrUw'; // env
 const PLAYLIST_ID = 'PLhslMUXu5Wn7UTXuoqiwndoOfdGxTgCKm'; // env
 
-
-
 const instance = axios.create({
     baseURL: 'https://www.googleapis.com/youtube/v3/',
     params: {
