@@ -153,11 +153,17 @@ export const ButtonsContainerStyled = styled.div`
 export const NavigationItemsContainerStyled = styled.div`
   max-width: 100%;
   height: 100%;
+  padding-bottom: 10px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
+  overflow: auto;
+
+  @media screen and (max-width: 1279px) {
+    gap: 20px;
+  }
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
@@ -168,7 +174,7 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
   color: black !important;
   font-family: Libre Franklin, sans-serif;
   font-size: ${({$isActive}) => $isActive ? '32px' : '24px'};
-  line-height: 120%;
+  line-height: 100%;
   font-weight: ${({$isActive}) => $isActive ? '700' : '500'};
   text-align: center;
   user-select: none;
@@ -179,29 +185,16 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
     display: flex;
     align-items: flex-end;
   }
-`;
 
-export const ButtonBlockContainerStyled = styled.div`
-  height: 100%;
-  padding: 5px 0 0;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-`;
-
-export const ButtonContainerStyled = styled.div`
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @media screen and (max-width: 1280px) {
+    font-size: ${({$isActive}) => $isActive ? '28px' : '20px'};
+  }
 `;
 
 export const CVButtonStyled = styled.button`
   width: 100px;
   height: 40px;
-  padding: 0;
+  padding: 0 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -221,7 +214,7 @@ export const CVButtonStyled = styled.button`
 
   &:hover, &:active, &:focus {
     outline: none;
-    color: #343ca8;
+    color: #000;
   }
 
   &:hover, svg:hover {
@@ -249,7 +242,6 @@ export const CVButtonBorderStyled = styled.svg`
 
   &:hover {
     stroke-dashoffset: 0;
-    stroke: #343ca8;
   }
 `;
 

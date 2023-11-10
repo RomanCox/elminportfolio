@@ -16,9 +16,9 @@ export const WrapperStyled = styled.div`
 `;
 
 export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & HomePagePropsType>`
-  width: 115px;
+  width: 145px;
   height: 100vh;
-  padding: 130px 0 130px 30px;
+  padding: 130px 30px;
   box-sizing: border-box;
   position: absolute;
   top: 0;
@@ -59,14 +59,14 @@ export const NavbarItemStyled = styled(NavLink)<HomePagePropsType>`
   user-select: none;
 
   &:hover {
-    //color: #fff;
+    // color: #fff;
     color: ${({ $homePage }) => $homePage ? '#fff' : '#000'};
     font-size: 26px;
     font-weight: 600;
   }
 
   &:visited {
-    //color: #fff;
+    // color: #fff;
     color: ${({ $homePage }) => $homePage ? '#fff' : '#000'};
   }
 `;

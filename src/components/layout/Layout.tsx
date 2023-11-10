@@ -20,8 +20,15 @@ export const Layout = () => {
 
     return (
         <>
-            <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={location.pathname === PATH.HOME}/>
-            <Header menuIsShow={menuIsShow} menuSwitch={menuSwitch} menuIsClose={menuIsClose} homePage={location.pathname === PATH.HOME}/>
+            {
+                location.pathname === PATH.HOME
+                    ? <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
+                                  homePage={location.pathname === PATH.HOME}/>
+                    : menuIsShow && <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
+                                                 homePage={location.pathname === PATH.HOME}/>
+            }
+            <Header menuIsShow={menuIsShow} menuSwitch={menuSwitch} menuIsClose={menuIsClose}
+                    homePage={location.pathname === PATH.HOME}/>
             <Outlet/>
             <Footer homePage={location.pathname === PATH.HOME} menuIsClose={menuIsClose}/>
         </>
