@@ -57,7 +57,7 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
 						}
 					</NavigationItemsContainerStyled>
 					<CVButtonStyled onClick={openModal}>
-						<CVButtonBorderStyled width='100px' height='40px' viewBox='0 0 100 40'>
+						<CVButtonBorderStyled width='100px' height='100%' viewBox='0 0 100 40'>
 							<polyline points='1,39 99,39 99,1 1,1 1,39'/>
 						</CVButtonBorderStyled>
 						<DownloadIcon/>

@@ -141,7 +141,7 @@ export const ChaptersStyled = styled.div`
 
 export const ButtonsContainerStyled = styled.div`
   max-width: 100%;
-  height: 60px;
+  // height: 60px;
   padding-left: 5px;
   box-sizing: border-box;
   display: flex;
@@ -153,13 +153,13 @@ export const ButtonsContainerStyled = styled.div`
 export const NavigationItemsContainerStyled = styled.div`
   max-width: 100%;
   height: 100%;
-  padding-bottom: 10px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
-  overflow: auto;
+  overflow-x: auto;
+  overflow-y: hidden;
 
   @media screen and (max-width: 1279px) {
     gap: 20px;
@@ -167,7 +167,7 @@ export const NavigationItemsContainerStyled = styled.div`
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
-  height: 50px;
+  // height: 50px;
   display: flex;
   align-items: center;
   position: relative;
@@ -181,7 +181,8 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
   cursor: pointer;
 
   div {
-    height: 40px;
+    // height: 40px;
+    height: 100%;
     display: flex;
     align-items: flex-end;
   }
@@ -193,7 +194,7 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
 
 export const CVButtonStyled = styled.button`
   width: 100px;
-  height: 40px;
+  // height: 40px;
   padding: 0 10px;
   box-sizing: border-box;
   display: flex;
@@ -207,7 +208,7 @@ export const CVButtonStyled = styled.button`
   position: relative;
   font-family: Libre Franklin, sans-serif;
   font-size: 24px;
-  line-height: 120%;
+  line-height: 100%;
   font-weight: 500;
   text-align: center;
   user-select: none;
@@ -222,8 +223,9 @@ export const CVButtonStyled = styled.button`
   }
 
   div {
-    width: 100%;
-    height: 100%;
+    // TODO width & height - ?
+    //width: 100%;
+    //height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;

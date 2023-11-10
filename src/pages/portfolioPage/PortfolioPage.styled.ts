@@ -53,10 +53,15 @@ export const TitleContainerStyled = styled.div`
   align-items: flex-start;
   font-family: Libre Franklin, sans-serif;
   font-size: 56px;
-  line-height: 67px;
+  line-height: 64px;
   font-weight: 700;
   text-align: start;
   user-select: none;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 32px;
+    line-height: 100%;
+  }
 `;
 
 export const TitleAndChaptersContainerStyled = styled.div`
@@ -65,35 +70,49 @@ export const TitleAndChaptersContainerStyled = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 20px;
+  gap: 50px;
 `;
 
 export const NavigationItemsContainerStyled = styled.div`
+  width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  @media screen and (max-width: 1280px) {
+    gap: 20px;
+  }
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
-  height: 50px;
+  // height: 50px;
+  height: 100%;
   display: flex;
   align-items: center;
   position: relative;
   color: black !important;
   font-family: Libre Franklin, sans-serif;
   font-size: ${({$isActive}) => $isActive ? '32px' : '24px'};
-  line-height: 120%;
+  line-height: 100%;
   font-weight: ${({$isActive}) => $isActive ? '700' : '500'};
   text-align: center;
   user-select: none;
   cursor: pointer;
+  white-space: nowrap;
 
   div {
-    height: 40px;
+    // height: 40px;
+    height: 100%;
     display: flex;
     align-items: flex-end;
+  }
+
+  @media screen and (max-width: 1280px) {
+    font-size: ${({$isActive}) => $isActive ? '28px' : '20px'};
   }
 `;
 

@@ -71,11 +71,11 @@ export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigat
 					}
 				</NavigationItemsContainerStyled>
 			</TitleAndChaptersContainerStyled>
-			<DescriptionContainerStyled>
+			{description.length > 0 && <DescriptionContainerStyled>
 				{description.map(text => <div key={text}>
 					{text}
 				</div>)}
-			</DescriptionContainerStyled>
+			</DescriptionContainerStyled>}
 		</NavigationContainerStyled>
 	);
 };
