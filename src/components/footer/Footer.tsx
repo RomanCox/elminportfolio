@@ -9,12 +9,12 @@ import {
 } from './Footer.styled.ts';
 
 export interface FooterPropsType {
-    menuSwitch: () => void;
-    homePage?: boolean;
+    menuIsClose: () => void;
+    homePage: boolean;
 }
 
-export const Footer = ({menuSwitch, homePage = false}: FooterPropsType) =>
-    <FooterContainerStyled $homePage={homePage} onClick={menuSwitch}>
+export const Footer = ({menuIsClose, homePage}: FooterPropsType) =>
+    <FooterContainerStyled $homePage={homePage} onClick={menuIsClose}>
         <LocationContainerStyled $homePage={homePage}>
             Minsk, Belarus
         </LocationContainerStyled>

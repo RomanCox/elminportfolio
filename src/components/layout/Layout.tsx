@@ -12,14 +12,18 @@ export const Layout = () => {
         setMenuIsShow(!menuIsShow);
     };
 
+    const menuIsClose = () => {
+        setMenuIsShow(false);
+    };
+
     const location = useLocation();
 
     return (
         <>
             <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={location.pathname === PATH.HOME}/>
-            <Header menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={location.pathname === PATH.HOME}/>
+            <Header menuIsShow={menuIsShow} menuSwitch={menuSwitch} menuIsClose={menuIsClose} homePage={location.pathname === PATH.HOME}/>
             <Outlet/>
-            <Footer homePage={location.pathname === PATH.HOME} menuSwitch={menuSwitch}/>
+            <Footer homePage={location.pathname === PATH.HOME} menuIsClose={menuIsClose}/>
         </>
     )
 }
