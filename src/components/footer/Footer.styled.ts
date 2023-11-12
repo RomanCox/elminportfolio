@@ -5,22 +5,30 @@ export interface FooterStyledPropsType {
     $homePage: boolean;
 }
 
-export const FooterContainerStyled = styled.div<FooterStyledPropsType>`
-  width: 100vw;
-  max-width: 1920px;
+export const FooterWrapperStyled = styled.div<FooterStyledPropsType>`
   height: 75px;
-  padding: 10px 30px;
   box-sizing: border-box;
   position: fixed;
   bottom: 0;
-  // left: 50%;
-  left: 50vw;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ${({ $homePage }) => $homePage ? 'rgba(0, 0, 0, 0.5)' : '#fff'};
+`;
+
+export const FooterContainerStyled = styled.div`
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  padding: 10px 30px;
+  box-sizing: border-box;
   z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${({ $homePage }) => $homePage ? 'rgba(0, 0, 0, 0.5)' : '#fff'};
 `;
 
 export const LocationContainerStyled = styled.div<FooterStyledPropsType>`

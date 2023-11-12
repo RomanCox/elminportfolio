@@ -7,6 +7,7 @@ interface HomePagePropsType {
 
 interface MenuContainerStyledPropsType {
     $menuIsShow: boolean;
+    $menuIndent: number;
 }
 
 export const WrapperStyled = styled.div`
@@ -22,8 +23,8 @@ export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & Hom
   box-sizing: border-box;
   position: absolute;
   top: 0;
-  left: ${({ $homePage }) => $homePage ? '0' : 'auto'};
-  right: ${({ $homePage }) => $homePage ? 'auto' : '0'};
+  left: ${({ $homePage, $menuIndent }) => $homePage ? $menuIndent : 'auto'};
+  right: ${({ $homePage, $menuIndent }) => $homePage ? 'auto' : $menuIndent};
   z-index: 1;
   display: flex;
   justify-content: ${({ $homePage }) => $homePage ? 'flex-start' : 'flex-end'};
@@ -33,7 +34,7 @@ export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & Hom
           ? 'translateX(0)'
           : $homePage ? 'translateX(-100%)' : 'translateX(100%)'
   };
-  transition: all 0.5s ease-in-out 0s;
+  transition: ${({ $menuIsShow }) => `transform 0.5s ease-in-out 0s, opacity 0.25s ease-in-out ${$menuIsShow ? '0.15' : '0'}s`};
 `;
 
 export const NavbarStyled = styled.nav<HomePagePropsType>`

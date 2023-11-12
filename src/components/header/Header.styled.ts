@@ -12,6 +12,10 @@ interface WidthPropsType {
 	$width?: number;
 }
 
+interface VisitedPropsType {
+	$visited: boolean;
+}
+
 export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   width: 100vw;
   max-width: 1920px;
@@ -118,22 +122,27 @@ export const LangContainerStyled = styled.div`
   height: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 7px;
 `;
 
 export const LangStyled = styled.div`
   height: 100%;
   color: #fff;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 400;
-  line-height: 29px;
+  line-height: 22px;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const SeparatorStyled = styled.div`
   width: 2px;
-  height: 100%;
+  // height: 100%;
+  height: 22px;
   background: #fff;
 `;
 
@@ -143,7 +152,7 @@ export const NavbarStyled = styled.nav`
   align-items: flex-start;
 `;
 
-export const NavbarItemStyled = styled(NavLink)`
+export const NavbarItemStyled = styled(NavLink)<VisitedPropsType>`
   padding: 0 40px;
   box-sizing: border-box;
   position: relative;
@@ -159,7 +168,7 @@ export const NavbarItemStyled = styled(NavLink)`
 
   &:after {
     content: '';
-    width: 0;
+    width: ${({ $visited }) => $visited ? '103%' : '0'};
     height: 2px;
     position: absolute;
     bottom: -15px;
@@ -185,7 +194,7 @@ export const NavbarItemStyled = styled(NavLink)`
   //  padding-right: 30px;
   //}
 
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1280px) {
     padding: 0 20px;
   }
 `;

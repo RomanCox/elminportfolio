@@ -6,6 +6,8 @@ interface NavigationItemStyledPropsType {
 
 interface GradientStyledPropsType {
     $reverse?: boolean;
+    $top?: boolean;
+    $bottom?: boolean;
 }
 
 export const AboutPageContainerStyled = styled.div`
@@ -80,6 +82,11 @@ export const NavigationContainerStyled = styled.div`
   gap: 40px;
   position: relative;
   box-sizing: border-box;
+
+  @media screen and (max-width: 1280px) {
+    height: 230px;
+    padding: 30px 30px 10px;
+  }
 `;
 
 export const TitleContainerStyled = styled.div`
@@ -112,6 +119,10 @@ export const ImageContainer = styled.div`
   background: #000;
   border-radius: 7px;
   box-sizing: border-box;
+
+  @media screen and (max-width: 1280px) {
+    top: 60px;
+  }
 `;
 
 export const ImageStyled = styled.img`
@@ -134,7 +145,7 @@ export const ChaptersStyled = styled.div`
     padding-left: calc(20vw - 210px);
   }
 
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1280px) {
     padding-left: calc(30vw - 210px);
   }
 `;
@@ -161,7 +172,7 @@ export const NavigationItemsContainerStyled = styled.div`
   overflow-x: auto;
   overflow-y: hidden;
 
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1280px) {
     gap: 20px;
   }
 `;
@@ -283,21 +294,23 @@ export const AllContentWrapperStyled = styled.div`
     padding-left: calc(20vw + 25px);
   }
 
-  @media screen and (max-width: 1279px) {
+  @media screen and (max-width: 1280px) {
     padding-left: calc(30vw + 25px);
   }
 `;
 
-export const GradientStripeStyled = styled.div<GradientStyledPropsType>`
+export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
   width: calc(100% - 20vw - 55px);
   height: 50px;
   box-sizing: border-box;
   position: absolute;
-  top: ${({ $reverse = false }) => $reverse ? 'auto' : '-1px'};
-  bottom: ${({ $reverse = false }) => $reverse ? '-1px' : 'auto'};
+  top: ${({ $top = false }) => $top ? '-1px' : 'auto'};
+  bottom: ${({ $bottom = false }) => $bottom ? '-1px' : 'auto'};
   right: 30px;
-  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-  background: ${({ $reverse = false }) => `linear-gradient(${$reverse ? '180deg' : '0deg'}, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)`};
+
+  @media screen and (max-width: 1280px) {
+    height: 30px;
+  }
 `;
 
 export const AllContentContainerStyled = styled.div`
@@ -311,6 +324,10 @@ export const AllContentContainerStyled = styled.div`
   align-items: flex-start;
   overflow-y: auto;
   scrollbar-width: thin;
+
+  @media screen and (max-width: 1280px) {
+    padding-bottom: 30px;
+  }
 `;
 
 export const ContentContainerStyled = styled.div`
@@ -322,6 +339,10 @@ export const ContentContainerStyled = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   gap: 50px;
+
+  @media screen and (max-width: 1280px) {
+    padding-top: 30px;
+  }
 `;
 
 export const ContentTitleContainerStyled = styled.div`
@@ -337,8 +358,8 @@ export const ContentTitleContainerStyled = styled.div`
   user-select: none;
 
   @media screen and (max-width: 1280px) {
-    font-size: 30px;
-    line-height: 34px;
+    font-size: 28px;
+    line-height: 32px;
   }
 `;
 

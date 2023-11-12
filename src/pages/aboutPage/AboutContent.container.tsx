@@ -1,8 +1,14 @@
 import {useEffect, useRef} from 'react';
 
+import {Gradient} from '../../components/gradient';
 import {AboutContent} from './AboutContent.component.tsx';
 
-import {AllContentContainerStyled, AllContentWrapperStyled, GradientStripeStyled} from './AboutPage.styled.ts';
+import {
+	AllContentContainerStyled,
+	AllContentWrapperStyled,
+	GradientContainerStyled,
+} from './AboutPage.styled.ts';
+
 
 interface AboutChapterItemType {
 	id: number;
@@ -33,13 +39,17 @@ export const AboutContentContainer = ({activeChapter, chapters}: AboutContentPro
 
 	return (
 		<AllContentWrapperStyled>
-			<GradientStripeStyled/>
+			<GradientContainerStyled $top>
+				<Gradient/>
+			</GradientContainerStyled>
 			<AllContentContainerStyled ref={chaptersRef}>
 				{chapters.map(chapter =>
 					<AboutContent key={chapter.id} chapter={chapter} activeChapter={activeChapter}/>,
 				)}
 			</AllContentContainerStyled>
-			<GradientStripeStyled $reverse/>
+			<GradientContainerStyled $bottom>
+				<Gradient angle={180}/>
+			</GradientContainerStyled>
 		</AllContentWrapperStyled>
 	);
 };

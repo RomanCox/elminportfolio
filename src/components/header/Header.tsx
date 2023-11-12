@@ -21,6 +21,7 @@ import {
     SocialLinksAndLangContainerStyled,
     SocialLinksContainerStyled,
 } from './Header.styled.ts';
+import {useLocation} from "react-router-dom";
 
 interface HeaderPropsType {
     menuIsShow: boolean;
@@ -37,6 +38,7 @@ export const Header = ({
                        }: HeaderPropsType) => {
     const [isShowBurgerButton, setIsShowBurgerButton] = useState<boolean>(false);
     const [width, setWidth] = useState<number>(0);
+    const location = useLocation();
 
     const windowSize = useWindowSize();
 
@@ -85,19 +87,19 @@ export const Header = ({
                     {isShowBurgerButton
                         ? <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
                         : <NavbarStyled>
-                            <NavbarItemStyled to={PATH.HOME}>
+                            <NavbarItemStyled to={PATH.HOME} $visited={location.pathname === PATH.HOME}>
                                 Home
                             </NavbarItemStyled>
-                            <NavbarItemStyled to={PATH.ABOUT}>
+                            <NavbarItemStyled to={PATH.ABOUT} $visited={location.pathname === PATH.ABOUT}>
                                 About
                             </NavbarItemStyled>
-                            <NavbarItemStyled to={PATH.PORTFOLIO}>
+                            <NavbarItemStyled to={PATH.PORTFOLIO} $visited={location.pathname === PATH.PORTFOLIO}>
                                 Portfolio
                             </NavbarItemStyled>
-                            <NavbarItemStyled to={PATH.SERVICES}>
+                            <NavbarItemStyled to={PATH.SERVICES} $visited={location.pathname === PATH.SERVICES}>
                                 Services
                             </NavbarItemStyled>
-                            <NavbarItemStyled to={PATH.CONTACTS}>
+                            <NavbarItemStyled to={PATH.CONTACTS} $visited={location.pathname === PATH.CONTACTS}>
                                 Contacts
                             </NavbarItemStyled>
                         </NavbarStyled>}

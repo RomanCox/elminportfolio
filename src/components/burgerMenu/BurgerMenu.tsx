@@ -7,9 +7,10 @@ interface BurgerMenuPropsType {
     menuIsShow: boolean;
     menuSwitch: () => void;
     homePage: boolean;
+    menuIndent: number;
 }
 
-export const BurgerMenu = ({menuIsShow, menuSwitch, homePage}: BurgerMenuPropsType) => {
+export const BurgerMenu = ({menuIsShow, menuSwitch, homePage, menuIndent}: BurgerMenuPropsType) => {
     const onClickHandler = (e: MouseEvent) => {
         e.stopPropagation();
         menuSwitch();
@@ -18,7 +19,7 @@ export const BurgerMenu = ({menuIsShow, menuSwitch, homePage}: BurgerMenuPropsTy
     return (
         <>
             {menuIsShow && <WrapperStyled onClick={e => onClickHandler(e)}/>}
-            <MenuContainerStyled $menuIsShow={menuIsShow} $homePage={homePage}>
+            <MenuContainerStyled $menuIsShow={menuIsShow} $homePage={homePage} $menuIndent={menuIndent}>
                 <NavbarStyled $homePage={homePage} onClick={menuSwitch}>
                     {!homePage && <NavbarItemStyled to={PATH.HOME} $homePage={homePage}>
                         Home

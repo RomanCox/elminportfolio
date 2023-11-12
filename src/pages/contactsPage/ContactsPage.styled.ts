@@ -23,10 +23,15 @@ export const TitleContainerStyled = styled.div`
   align-items: flex-start;
   font-family: Libre Franklin, sans-serif;
   font-size: 56px;
-  line-height: 67px;
+  line-height: 64px;
   font-weight: 700;
   text-align: start;
   user-select: none;
+
+  @media screen and (max-width: 1280px) {
+    font-size: 32px;
+    line-height: 36px;
+  }
 `;
 
 export const AllContactsContainerStyled = styled.div`

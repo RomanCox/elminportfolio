@@ -18,6 +18,7 @@ interface ImagePropsType {
     jpg: string;
     png: string;
     webp: string;
+    position: string;
 }
 
 export const PortfolioPageContainerStyled = styled.div`
@@ -66,6 +67,7 @@ export const TitleContainerStyled = styled.div`
 
 export const TitleAndChaptersContainerStyled = styled.div`
   width: 100%;
+  padding-right: 40px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -75,6 +77,8 @@ export const TitleAndChaptersContainerStyled = styled.div`
 
 export const NavigationItemsContainerStyled = styled.div`
   width: 100%;
+  max-width: 950px;
+  margin-bottom: 7px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -84,7 +88,7 @@ export const NavigationItemsContainerStyled = styled.div`
   overflow-y: hidden;
 
   @media screen and (max-width: 1280px) {
-    gap: 20px;
+    width: auto;
   }
 `;
 
@@ -157,9 +161,9 @@ export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
 
 export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
   width: calc((100vw - 85px) / 2);
-  max-width: 925px;
+  max-width: 922px;
   height: calc((100vw - 85px) / 3.555);
-  max-height: 520px;
+  max-height: 519px;
   border-radius: 15px;
   background-image: ${({$image}) => `url(${$image})`};
   background-position: center center;
@@ -216,6 +220,6 @@ export const ImageStyled = styled.div<ImagePropsType>`
   )`};
   background-size: cover;
   background-origin: content-box;
-  background-position: center;
+  background-position: ${({ position }) => position};
   background-repeat: no-repeat;
 `;

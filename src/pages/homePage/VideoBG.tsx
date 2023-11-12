@@ -5,10 +5,7 @@ import {
 } from './HomePage.styled.ts';
 
 export const VideoBG = () => {
-
-	// const playListId = 'PLhslMUXu5Wn7UTXuoqiwndoOfdGxTgCKm';
 	const playListId = 'PLhslMUXu5Wn40l0qjPXcSG_n02flPYuam';
-	// const playListId = 'PLQ2pecoJpKwcQUTuCHOntLPh1W-FiQ0uf';
 
 	return (
 		<VideoBGContainerStyled>
