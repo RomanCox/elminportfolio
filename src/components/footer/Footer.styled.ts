@@ -5,6 +5,10 @@ export interface FooterStyledPropsType {
     $homePage: boolean;
 }
 
+export interface CenterPropsType {
+    $center?: boolean;
+}
+
 export const FooterWrapperStyled = styled.div<FooterStyledPropsType>`
   height: 75px;
   box-sizing: border-box;
@@ -40,10 +44,14 @@ export const LocationContainerStyled = styled.div<FooterStyledPropsType>`
   text-align: start;
 `;
 
-export const SocialLinksContainerStyled = styled.div`
+export const SocialLinksContainerStyled = styled.div<CenterPropsType>`
   display: flex;
   justify-content: space-between;
   gap: 10px;
+  position: ${({ $center }) => $center ? 'absolute' : 'static'};
+  top: ${({ $center }) => $center ? '50%' : 'auto'};
+  left: ${({ $center }) => $center ? '50%' : 'auto'};
+  transform: ${({ $center }) => $center ? 'translate(-50%, -50%)' : 'none'};
 `;
 
 export const LinkStyled = styled(NavLink)`

@@ -8,12 +8,12 @@ interface HeaderPropsType {
     $homePage?: boolean;
 }
 
-interface WidthPropsType {
-	$width?: number;
+interface WidthPropsType extends HeaderPropsType{
+    $width?: number;
 }
 
 interface VisitedPropsType {
-	$visited: boolean;
+    $visited: boolean;
 }
 
 export const HeaderContainerStyled = styled.div<HeaderPropsType>`
@@ -27,9 +27,14 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   z-index: 2;
   display: flex;
   justify-content: space-between;
-  align-items: ${({ $homePage }) => $homePage? 'center' : 'flex-end'};
+  align-items: ${({$homePage}) => $homePage ? 'center' : 'flex-end'};
   box-sizing: border-box;
-  background: ${({ $homePage }) => $homePage ? 'transparent)' : '#fff'};
+  background: ${({$homePage}) => $homePage ? 'transparent' : '#fff'};
+
+  @media screen and (max-width: 1024px) {
+    justify-content: center;
+    background: ${({$homePage}) => $homePage ? 'black' : '#fff'};
+  }
 
   @media screen and (max-width: 899px) {
     align-items: center;
@@ -37,7 +42,16 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
 `;
 
 export const BurgerButtonContainerStyled = styled.div<WidthPropsType>`
-  width: ${({ $width }) => $width ? `${$width}px` : 'auto'};
+  width: ${({$width}) => $width ? `${$width}px` : 'auto'};
+
+  @media screen and (max-width: 1024px) {
+    position: absolute;
+    // top: ${({$homePage}) => $homePage ? '40px' : '30px'};
+    top: 50%;
+    left: ${({$homePage}) => $homePage ? '30px' : 'auto'};
+    right: ${({$homePage}) => $homePage ? 'auto' : '30px'};
+    transform: translateY(-50%);
+  }
 `;
 
 export const BurgerButtonStyled = styled.div`
@@ -55,11 +69,11 @@ export const BarsStyled = styled.div<BurgerStyledPropsType>`
   width: 90%;
   height: 5px;
   border-radius: 2.5px;
-  background-color: ${({ $isBurgerMenuOpened,  $homePage}) =>
-		$isBurgerMenuOpened ? 'transparent' : $homePage ? '#fff' : '#000'};
+  background-color: ${({$isBurgerMenuOpened, $homePage}) =>
+          $isBurgerMenuOpened ? 'transparent' : $homePage ? '#fff' : '#000'};
   position: relative;
-  transition: ${({ $isBurgerMenuOpened }) =>
-		$isBurgerMenuOpened ? 'all 0ms 300ms' : 'none'};
+  transition: ${({$isBurgerMenuOpened}) =>
+          $isBurgerMenuOpened ? 'all 0ms 300ms' : 'none'};
 
   &:before {
     content: '';
@@ -68,15 +82,15 @@ export const BarsStyled = styled.div<BurgerStyledPropsType>`
     border-radius: 2.5px;
     position: absolute;
     left: 0;
-    bottom: ${({ $isBurgerMenuOpened }) =>
-		$isBurgerMenuOpened ? '0' : '10px'};
-    transform: ${({ $isBurgerMenuOpened }) =>
-		$isBurgerMenuOpened ? 'rotate(-45deg)' : 'none'};
-    background-color: ${({ $homePage }) => $homePage ? '#fff' : '#000'};
-    transition: ${({ $isBurgerMenuOpened }) =>
-		$isBurgerMenuOpened
-			? 'bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)'
-			: 'bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)'};
+    bottom: ${({$isBurgerMenuOpened}) =>
+            $isBurgerMenuOpened ? '0' : '10px'};
+    transform: ${({$isBurgerMenuOpened}) =>
+            $isBurgerMenuOpened ? 'rotate(-45deg)' : 'none'};
+    background-color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
+    transition: ${({$isBurgerMenuOpened}) =>
+            $isBurgerMenuOpened
+                    ? 'bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)'
+                    : 'bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)'};
   }
 
   &:after {
@@ -86,63 +100,28 @@ export const BarsStyled = styled.div<BurgerStyledPropsType>`
     border-radius: 2.5px;
     position: absolute;
     left: 0;
-    top: ${({ $isBurgerMenuOpened }) => ($isBurgerMenuOpened ? '0' : '10px')};
-    transform: ${({ $isBurgerMenuOpened }) =>
-		$isBurgerMenuOpened ? 'rotate(45deg)' : 'none'};
-    background-color: ${({ $homePage }) => $homePage ? '#fff' : '#000'};
-    transition: ${({ $isBurgerMenuOpened }) =>
-		$isBurgerMenuOpened
-			? 'top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)'
-			: 'top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)'};
+    top: ${({$isBurgerMenuOpened}) => ($isBurgerMenuOpened ? '0' : '10px')};
+    transform: ${({$isBurgerMenuOpened}) =>
+            $isBurgerMenuOpened ? 'rotate(45deg)' : 'none'};
+    background-color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
+    transition: ${({$isBurgerMenuOpened}) =>
+            $isBurgerMenuOpened
+                    ? 'top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)'
+                    : 'top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)'};
   }
 `;
 
 export const LogoContainerStyled = styled(NavLink)<HeaderPropsType>`
-  width: ${({ $homePage = false }) => $homePage ? '300px' : '200px'};
-  height: ${({ $homePage = false }) => $homePage ? '75px' : '50px'};
-  font-size: ${({ $homePage = false }) => $homePage ? '12px' : '8px'};
-`;
-
-export const SocialLinksAndLangContainerStyled = styled.div`
-  height: 30px;
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  width: ${({$homePage = false}) => $homePage ? '300px' : '200px'};
+  height: ${({$homePage = false}) => $homePage ? '75px' : '50px'};
+  font-size: ${({$homePage = false}) => $homePage ? '12px' : '8px'};
 `;
 
 export const SocialLinksContainerStyled = styled.div`
-  height: 100%;
+  height: 30px;
   display: flex;
   justify-content: space-between;
   gap: 10px;
-`;
-
-export const LangContainerStyled = styled.div`
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 7px;
-`;
-
-export const LangStyled = styled.div`
-  height: 100%;
-  color: #fff;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 22px;
-  text-align: center;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const SeparatorStyled = styled.div`
-  width: 2px;
-  // height: 100%;
-  height: 22px;
-  background: #fff;
 `;
 
 export const NavbarStyled = styled.nav`

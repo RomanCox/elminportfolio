@@ -178,7 +178,7 @@ export const NavigationItemsContainerStyled = styled.div`
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
-  // height: 50px;
+  height: 100%;
   display: flex;
   align-items: center;
   position: relative;
@@ -191,13 +191,6 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
   user-select: none;
   cursor: pointer;
 
-  div {
-    // height: 40px;
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-  }
-
   @media screen and (max-width: 1280px) {
     font-size: ${({$isActive}) => $isActive ? '28px' : '20px'};
   }
@@ -205,7 +198,6 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
 
 export const CVButtonStyled = styled.button`
   width: 100px;
-  // height: 40px;
   padding: 0 10px;
   box-sizing: border-box;
   display: flex;
@@ -234,9 +226,6 @@ export const CVButtonStyled = styled.button`
   }
 
   div {
-    // TODO width & height - ?
-    //width: 100%;
-    //height: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -301,12 +290,13 @@ export const AllContentWrapperStyled = styled.div`
 
 export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
   width: calc(100% - 20vw - 55px);
-  height: 50px;
+  height: 52px;
   box-sizing: border-box;
   position: absolute;
-  top: ${({ $top = false }) => $top ? '-1px' : 'auto'};
-  bottom: ${({ $bottom = false }) => $bottom ? '-1px' : 'auto'};
+  top: ${({ $top = false }) => $top ? '-2px' : 'auto'};
+  bottom: ${({ $bottom = false }) => $bottom ? '-2px' : 'auto'};
   right: 30px;
+  z-index: 1;
 
   @media screen and (max-width: 1280px) {
     height: 30px;

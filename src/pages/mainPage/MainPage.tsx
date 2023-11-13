@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
-import {useWindowSize} from '../../hooks/useWindowSize.ts';
+import {useWindowSize} from '../../hooks/useWindowsize';
+
 import {MainPageDesktop} from './MainPageDesktop.tsx';
 import {MainPageMobile} from './MainPageMobile.tsx';
 

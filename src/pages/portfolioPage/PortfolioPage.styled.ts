@@ -22,6 +22,11 @@ interface ImagePropsType {
     position?: string;
 }
 
+interface NavigationGradientStyledPropsType {
+    $left?: boolean;
+    $right?: boolean;
+}
+
 export const PortfolioPageContainerStyled = styled.div`
   width: 100%;
   height: 100vh;
@@ -76,10 +81,33 @@ export const TitleAndChaptersContainerStyled = styled.div`
   gap: 50px;
 `;
 
-export const NavigationItemsContainerStyled = styled.div`
+export const NavigationItemsWrapperStyled = styled.div`
   width: 100%;
   max-width: 950px;
   margin-bottom: 7px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+
+  @media screen and (max-width: 1280px) {
+    margin-bottom: 0;
+  }
+`;
+
+export const NavigationGradientContainerStyled = styled.div<NavigationGradientStyledPropsType>`
+  width: 32px;
+  height: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: ${({$left = false}) => $left ? '-2px' : 'auto'};
+  right: ${({$right = false}) => $right ? '-2px' : 'auto'};
+  z-index: 1;
+`;
+
+export const NavigationItemsContainerStyled = styled.div`
+  width: 100%;
+  padding: 0 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -90,39 +118,12 @@ export const NavigationItemsContainerStyled = styled.div`
 
   @media screen and (max-width: 1280px) {
     width: auto;
+    margin-bottom: 0;
   }
 `;
 
-export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
-  // height: 100%;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  color: black !important;
-  font-family: Libre Franklin, sans-serif;
-  font-size: ${({$isActive}) => $isActive ? '32px' : '24px'};
-  line-height: 100%;
-  font-weight: ${({$isActive}) => $isActive ? '700' : '500'};
-  text-align: center;
-  user-select: none;
-  cursor: pointer;
-  white-space: nowrap;
-
-  div {
-    //height: 100%;
-    display: flex;
-    align-items: flex-end;
-  }
-
-  @media screen and (max-width: 1280px) {
-    font-size: ${({$isActive}) => $isActive ? '28px' : '20px'};
-  }
-`;
-
-export const NewNavigationItemStyled = styled.div<NavigationItemStyledPropsType>`
+export const NavigationItemStyled = styled.div<NavigationItemStyledPropsType>`
   width: ${({ $width }) => `${$width}px`};
-  // height: 100%;
   height: 32px;
   display: flex;
   align-items: center;
@@ -136,30 +137,31 @@ export const NewNavigationItemStyled = styled.div<NavigationItemStyledPropsType>
   user-select: none;
   cursor: pointer;
   white-space: nowrap;
-
-  span {
-    //height: 100%;
-    display: flex;
-    align-items: flex-end;
-    transition: transform 0.25s linear;
-    backface-visibility: hidden;
-    position: absolute;
-  }
   
-  span:nth-child(1) {
-    transform: perspective(600px) rotateX(0deg);
-  }
-
-  span:nth-child(2) {
-    transform: perspective(600px) rotateX(-180deg);
-  }
-  
-  &:hover {
-    span:nth-child(1) {
-      transform: perspective(600px) rotateX(180deg);
+  @media screen and (min-width: 1025px) {
+    span {
+      display: flex;
+      align-items: flex-end;
+      transition: transform 0.25s linear;
+      backface-visibility: hidden;
+      position: absolute;
     }
+
+    span:nth-child(1) {
+      transform: perspective(200px) rotateX(0deg);
+    }
+
     span:nth-child(2) {
-      transform: perspective(600px) rotateX(0deg);
+      transform: perspective(200px) rotateX(-180deg);
+    }
+    
+    &:hover {
+      span:nth-child(1) {
+        transform: ${({ $isActive }) => $isActive ? 'perspective(600px) rotateX(0deg)' : 'perspective(600px) rotateX(180deg)'};
+      }
+      span:nth-child(2) {
+        transform: ${({ $isActive }) => $isActive ? 'perspective(600px) rotateX(-180deg)' : 'perspective(600px) rotateX(0deg)'};
+      }
     }
   }
 

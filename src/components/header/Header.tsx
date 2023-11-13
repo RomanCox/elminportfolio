@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
 
-import {useWindowSize} from '../../hooks/useWindowSize.ts';
+import {useWindowSize} from '../../hooks/useWindowsize';
 
 import {Logo} from '../logo';
 import {IconSet} from '../iconSet';
@@ -12,13 +12,9 @@ import {
     BottomLineStyled,
     BurgerButtonContainerStyled,
     HeaderContainerStyled,
-    LangContainerStyled,
-    LangStyled,
     LogoContainerStyled,
     NavbarItemStyled,
     NavbarStyled,
-    SeparatorStyled,
-    SocialLinksAndLangContainerStyled,
     SocialLinksContainerStyled,
 } from './Header.styled.ts';
 import {useLocation} from "react-router-dom";
@@ -63,29 +59,26 @@ export const Header = ({
         <HeaderContainerStyled $homePage={homePage} onClick={menuIsClose}>
             {homePage
                 ? <>
-                    <BurgerButtonContainerStyled $width={width}>
+                    <BurgerButtonContainerStyled $homePage={homePage} $width={width}>
                         <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
                     </BurgerButtonContainerStyled>
                     <LogoContainerStyled to={PATH.HOME} $homePage>
                         <Logo variant='white' homePage/>
                     </LogoContainerStyled>
-                    <SocialLinksAndLangContainerStyled ref={div}>
+                    {windowSize.width > 1024 &&
                         <SocialLinksContainerStyled>
                             <IconSet/>
                         </SocialLinksContainerStyled>
-                        <LangContainerStyled>
-                            <LangStyled>RU</LangStyled>
-                            <SeparatorStyled/>
-                            <LangStyled>EN</LangStyled>
-                        </LangContainerStyled>
-                    </SocialLinksAndLangContainerStyled>
+                    }
                 </>
                 : <>
                     <LogoContainerStyled to={PATH.HOME}>
                         <Logo variant='black'/>
                     </LogoContainerStyled>
                     {isShowBurgerButton
-                        ? <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
+                        ? <BurgerButtonContainerStyled>
+                            <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
+                        </BurgerButtonContainerStyled>
                         : <NavbarStyled>
                             <NavbarItemStyled to={PATH.HOME} $visited={location.pathname === PATH.HOME}>
                                 Home

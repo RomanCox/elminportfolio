@@ -1,10 +1,12 @@
 import {useEffect, useState} from 'react';
 import {Outlet, useLocation} from 'react-router-dom';
+import {useWindowSize} from '../../hooks/useWindowsize';
+
+import {PATH} from '../../App.tsx';
 import {BurgerMenu} from '../burgerMenu';
 import {Header} from '../header';
 import {Footer} from '../footer';
-import {PATH} from '../../App.tsx';
-import {useWindowSize} from "../../hooks/useWindowSize.ts";
+
 
 export const Layout = () => {
     const [menuIsShow, setMenuIsShow] = useState<boolean>(false);
@@ -32,13 +34,8 @@ export const Layout = () => {
 
     return (
         <>
-            {
-                location.pathname === PATH.HOME
-                    ? <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
-                                  homePage={location.pathname === PATH.HOME} menuIndent={menuIndent}/>
-                    : menuIsShow && <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
-                                                 homePage={location.pathname === PATH.HOME} menuIndent={menuIndent}/>
-            }
+            <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
+                        homePage={location.pathname === PATH.HOME} menuIndent={menuIndent}/>
             <Header menuIsShow={menuIsShow} menuSwitch={menuSwitch} menuIsClose={menuIsClose}
                     homePage={location.pathname === PATH.HOME}/>
             <Outlet/>

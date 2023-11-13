@@ -1,3 +1,5 @@
+import {useWindowSize} from '../../hooks/useWindowsize';
+
 import {Title} from '../../components/title';
 import {DownloadIcon} from '../../assets/icons/downloadIcon.tsx';
 import {PhraseRotate} from '../../components/phraseRotate';
@@ -19,7 +21,6 @@ import {
     TitleContainerStyled,
 } from './AboutPage.styled.ts';
 
-
 interface AboutNavigationPropsType {
     activeChapter: string;
     chooseChapter: (value: string) => void;
@@ -28,7 +29,7 @@ interface AboutNavigationPropsType {
 }
 
 export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapters}: AboutNavigationPropsType) => {
-
+    const windowSize = useWindowSize();
     const navigationChapters = chapters.map(chapter => chapter.label);
 
     const descriptions = ['I am a professional 3d artist with years of experience in computer graphics.',
@@ -56,10 +57,7 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
                                     chooseChapter(chapter);
                                 }}
                             >
-                                <div>
-                                    <PhraseRotate value={chapter}/>
-                                    {/*{chapter}*/}
-                                </div>
+                                    {windowSize.width <= 1024 || chapter === activeChapter ? chapter : <PhraseRotate value={chapter}/>}
                             </NavigationItemStyled>)
                         }
                     </NavigationItemsContainerStyled>

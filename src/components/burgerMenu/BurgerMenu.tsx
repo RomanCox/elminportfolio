@@ -16,6 +16,8 @@ export const BurgerMenu = ({menuIsShow, menuSwitch, homePage, menuIndent}: Burge
         menuSwitch();
     }
 
+    console.log(homePage)
+
     return (
         <>
             {menuIsShow && <WrapperStyled onClick={e => onClickHandler(e)}/>}

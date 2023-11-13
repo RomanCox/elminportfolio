@@ -1,20 +1,21 @@
 import {useEffect, useState} from 'react';
+import {useWindowSize} from '../../hooks/useWindowsize';
 
+import {Gradient} from '../../components/gradient';
 import {Title} from '../../components/title';
 import {NavigationItem} from './NavigationItem.tsx';
-// import {PhraseRotate} from '../../components/phraseRotate';
 
 import {ActiveChapterType} from './PortfolioPage.tsx';
 
 import {
+    DescriptionContainerStyled,
     NavigationContainerStyled,
+    NavigationGradientContainerStyled,
+    NavigationItemsContainerStyled,
+    NavigationItemStyled, NavigationItemsWrapperStyled,
     TitleAndChaptersContainerStyled,
     TitleContainerStyled,
-    NavigationItemsContainerStyled,
-    // NavigationItemStyled,
-    DescriptionContainerStyled,
 } from './PortfolioPage.styled.ts';
-
 
 interface AboutNavigationPropsType {
     activeChapter: ActiveChapterType;
@@ -28,6 +29,7 @@ export interface ChapterType {
 }
 
 export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigationPropsType) => {
+    const windowSize = useWindowSize();
     const [description, setDescription] = useState<string[]>([]);
     const chapters: ChapterType[] = [
         {
@@ -54,6 +56,8 @@ export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigat
         },
     ];
 
+    const chooseChapterTimeout = (value: ActiveChapterType) => setTimeout(() => chooseChapter(value), 150, value);
+
     useEffect(() => {
         const description = chapters.filter(chapter => chapter.label === activeChapter)[0].description;
         setDescription(description);
@@ -65,28 +69,34 @@ export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigat
                 <TitleContainerStyled>
                     <Title variant='h1' color='#000' text={'Portfolio'}/>
                 </TitleContainerStyled>
-                <NavigationItemsContainerStyled>
-                    {chapters.map(chapter =>
-                        // <NavigationItemStyled
-                        //     key={chapter.id}
-                        //     $isActive={chapter.label === activeChapter}
-                        //     onClick={() => {
-                        //         chooseChapter(chapter.label);
-                        //     }}
-                        // >
-                        //     <div>
-                        //         <PhraseRotate value={chapter.label}/>
-                        //         {/*{chapter.label}*/}
-                        //     </div>
-                        // </NavigationItemStyled>
-                        <NavigationItem
-                            key={chapter.id}
-                            chapter={chapter}
-                            activeChapter={activeChapter}
-                            chooseChapter={chooseChapter}
-                        />
-                    )}
-                </NavigationItemsContainerStyled>
+                <NavigationItemsWrapperStyled>
+                    <NavigationGradientContainerStyled $left>
+                        <Gradient angle={-90}/>
+                    </NavigationGradientContainerStyled>
+                    <NavigationItemsContainerStyled>
+                        {chapters.map(chapter =>
+                            <>
+                                {windowSize.width > 1024
+                                    ? <NavigationItem
+                                        key={chapter.id}
+                                        chapter={chapter}
+                                        activeChapter={activeChapter}
+                                        chooseChapter={chooseChapter}
+                                    />
+                                    : <NavigationItemStyled
+                                        $isActive={chapter.label === activeChapter}
+                                        onClick={() => chooseChapterTimeout(chapter.label)}
+                                    >
+                                        {chapter.label}
+                                    </NavigationItemStyled>
+                                }
+                            </>
+                        )}
+                    </NavigationItemsContainerStyled>
+                    <NavigationGradientContainerStyled $right>
+                        <Gradient angle={90}/>
+                    </NavigationGradientContainerStyled>
+                </NavigationItemsWrapperStyled>
             </TitleAndChaptersContainerStyled>
             {description.length > 0 && <DescriptionContainerStyled>
                 {description.map(text => <div key={text}>
