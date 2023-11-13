@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface ModalStyledPropsType {
     $isAnimation: boolean;
+    $className: string,
 }
 
 export const ModalWrapperStyled = styled.div<ModalStyledPropsType>`
@@ -17,6 +18,7 @@ export const ModalWrapperStyled = styled.div<ModalStyledPropsType>`
   opacity: ${({ $isAnimation }) => $isAnimation ? '1' : '0'};
   z-index: 1000;
   animation: ${({ $isAnimation }) => $isAnimation ? 'on 0.3s ease 0s 1' : 'off 0.3s ease 0s 1'};
+  ${({ $className }) => $className};
   
   @keyframes on {
     0% {

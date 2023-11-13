@@ -1,4 +1,4 @@
-import {useState, MouseEvent} from 'react';
+import {MouseEvent, useState} from 'react';
 import {Modal} from '../../components/modal';
 
 import bed1JPG from '../../assets/images/portfolio/modelling/bed1.jpg';
@@ -157,11 +157,11 @@ import inverterWEBP from '../../assets/images/portfolio/modelling/inverter.webp'
 
 import {ScrollPropsType} from './PortfolioContent.tsx';
 import {
-    ModellingContentContainerStyled,
     BackArrowStyled,
     BigImageStyled,
     ForwardArrowStyled,
     ImageStyled,
+    ModellingContentContainerStyled,
 } from './PortfolioPage.styled.ts';
 
 export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
@@ -604,13 +604,14 @@ export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
     return (
         <ModellingContentContainerStyled $isScroll={isScroll}>
             {modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
-                <BackArrowStyled fontSize={'large'} onClick={(e) => prevImage(e)} />
-                <picture>
-                    <source type={'image/webp'} srcSet={content.filter(pic => pic.id === imageInModal)[0].imageWEBP}/>
-                    <source type={'image/png'} srcSet={content.filter(pic => pic.id === imageInModal)[0].imagePNG}/>
-                    <BigImageStyled src={content.filter(pic => pic.id === imageInModal)[0].imageJPG}/>
-                </picture>
-                <ForwardArrowStyled fontSize={'large'} onClick={(e) => nextImage(e)} />
+                <BackArrowStyled fontSize={'large'} onClick={(e) => prevImage(e)}/>
+                    <picture>
+                        <source type={'image/webp'}
+                                srcSet={content.filter(pic => pic.id === imageInModal)[0].imageWEBP}/>
+                        <source type={'image/png'} srcSet={content.filter(pic => pic.id === imageInModal)[0].imagePNG}/>
+                        <BigImageStyled src={content.filter(pic => pic.id === imageInModal)[0].imageJPG} width={'100%'} height={'100%'}/>
+                    </picture>
+                <ForwardArrowStyled fontSize={'large'} onClick={(e) => nextImage(e)}/>
             </Modal>}
             {content.map(pic =>
                 <ImageStyled

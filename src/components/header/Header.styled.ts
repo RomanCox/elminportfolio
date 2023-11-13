@@ -22,7 +22,6 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   padding: 20px 30px 15px;
   position: fixed;
   top: 0;
-  // left: 50%;
   left: 50vw;
   transform: translateX(-50%);
   z-index: 2;
@@ -166,13 +165,25 @@ export const NavbarItemStyled = styled(NavLink)<VisitedPropsType>`
   user-select: none;
   cursor: pointer;
 
-  &:after {
+  &:before {
     content: '';
-    width: ${({ $visited }) => $visited ? '103%' : '0'};
+    width: ${({$visited}) => $visited ? '51.5%' : '0'};
     height: 2px;
     position: absolute;
     bottom: -15px;
-    left: 0;
+    left: ${({$visited}) => $visited ? '-1.5%' : '50%'};
+    z-index: 1;
+    background: #000;
+    transition: all 0.25s ease-in-out 0s;
+  }
+
+  &:after {
+    content: '';
+    width: ${({$visited}) => $visited ? '51.5%' : '0'};
+    height: 2px;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
     z-index: 1;
     background: #000;
     transition: all 0.25s ease-in-out 0s;
@@ -180,19 +191,20 @@ export const NavbarItemStyled = styled(NavLink)<VisitedPropsType>`
 
   &:hover {
     color: #000;
-    
+
+    &:before {
+      width: 51.5%;
+      left: -1.5%;
+    }
+
     &:after {
-      width: 103%;
+      width: 51.5%;
     }
   }
 
   &:visited {
     color: #000;
   }
-  
-  //&:last-child {
-  //  padding-right: 30px;
-  //}
 
   @media screen and (max-width: 1280px) {
     padding: 0 20px;

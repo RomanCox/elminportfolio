@@ -4,6 +4,7 @@ import ArrowBackIosRoundedIcon from '@mui/icons-material/ArrowBackIosRounded';
 
 interface NavigationItemStyledPropsType {
     $isActive: boolean;
+    $width?: number;
 }
 
 interface VideoContainerPropsType {
@@ -18,7 +19,7 @@ interface ImagePropsType {
     jpg: string;
     png: string;
     webp: string;
-    position: string;
+    position?: string;
 }
 
 export const PortfolioPageContainerStyled = styled.div`
@@ -93,8 +94,8 @@ export const NavigationItemsContainerStyled = styled.div`
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
-  // height: 50px;
-  height: 100%;
+  // height: 100%;
+  height: 32px;
   display: flex;
   align-items: center;
   position: relative;
@@ -109,10 +110,57 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
   white-space: nowrap;
 
   div {
-    // height: 40px;
-    height: 100%;
+    //height: 100%;
     display: flex;
     align-items: flex-end;
+  }
+
+  @media screen and (max-width: 1280px) {
+    font-size: ${({$isActive}) => $isActive ? '28px' : '20px'};
+  }
+`;
+
+export const NewNavigationItemStyled = styled.div<NavigationItemStyledPropsType>`
+  width: ${({ $width }) => `${$width}px`};
+  // height: 100%;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: black !important;
+  font-family: Libre Franklin, sans-serif;
+  font-size: ${({$isActive}) => $isActive ? '32px' : '24px'};
+  line-height: 100%;
+  font-weight: ${({$isActive}) => $isActive ? '700' : '500'};
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+  white-space: nowrap;
+
+  span {
+    //height: 100%;
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.25s linear;
+    backface-visibility: hidden;
+    position: absolute;
+  }
+  
+  span:nth-child(1) {
+    transform: perspective(600px) rotateX(0deg);
+  }
+
+  span:nth-child(2) {
+    transform: perspective(600px) rotateX(-180deg);
+  }
+  
+  &:hover {
+    span:nth-child(1) {
+      transform: perspective(600px) rotateX(180deg);
+    }
+    span:nth-child(2) {
+      transform: perspective(600px) rotateX(0deg);
+    }
   }
 
   @media screen and (max-width: 1280px) {
@@ -201,7 +249,10 @@ export const ForwardArrowStyled = styled(ArrowForwardIosRoundedIcon)`
   cursor: pointer;
 `;
 
-export const BigImageStyled = styled.img``;
+export const BigImageStyled = styled.img`
+  max-width: 80vw;
+  max-height: 90vh;
+`;
 
 export const ImageStyled = styled.div<ImagePropsType>`
   width: calc((100vw - 100px) / 5);

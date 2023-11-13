@@ -1,12 +1,13 @@
 import {Suspense} from 'react';
 import {Route, Routes} from 'react-router-dom';
 import {MainPageAsync} from './pages/mainPage';
-import {Layout} from './components/layout/Layout.tsx';
+import {Layout} from './components/layout';
 import {HomePageAsync} from './pages/homePage';
 import {AboutPageAsync} from './pages/aboutPage';
 import {PortfolioPageAsync} from './pages/portfolioPage';
 import {ServicesPageAsync} from './pages/servicesPage';
 import {ContactsPageAsync} from './pages/contactsPage';
+import {NotFoundPageAsync} from './pages/notFoundPage';
 
 import {AppContainerStyled} from './App.styled.ts';
 
@@ -17,6 +18,7 @@ export const PATH = {
     PORTFOLIO: '/portfolio',
     SERVICES: '/services',
     CONTACTS: '/contacts',
+    NOTFOUND: '/*',
     ADMIN: '/admin',
 };
 
@@ -34,6 +36,7 @@ export const App = () => {
                         <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync/>}/>
                         <Route path={PATH.SERVICES} element={<ServicesPageAsync/>}/>
                         <Route path={PATH.CONTACTS} element={<ContactsPageAsync/>}/>
+                        <Route path={PATH.NOTFOUND} element={<NotFoundPageAsync/>}/>
                     </Route>
                 </Routes>
             </Suspense>

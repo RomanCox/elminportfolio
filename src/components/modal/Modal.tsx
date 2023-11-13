@@ -8,9 +8,10 @@ export interface ModalPropsType {
     children: ReactNode;
     closeModal: () => void;
     modalActive: boolean;
+	className?: string;
 }
 
-export const Modal = ({children, closeModal, modalActive}: ModalPropsType) => {
+export const Modal = ({children, closeModal, modalActive, className = ''}: ModalPropsType) => {
 	const [isAnimation, setIsAnimation] = useState<boolean>(false);
 
 	const closeHandler = () => {
@@ -25,7 +26,7 @@ export const Modal = ({children, closeModal, modalActive}: ModalPropsType) => {
 	}, [modalActive]);
 
 	return (
-		<ModalWrapperStyled $isAnimation={isAnimation} onClick={closeHandler}>
+		<ModalWrapperStyled $isAnimation={isAnimation} onClick={closeHandler} $className={className}>
 			{children}
 		</ModalWrapperStyled>
 	);
