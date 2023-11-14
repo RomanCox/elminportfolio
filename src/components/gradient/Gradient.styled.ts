@@ -9,5 +9,5 @@ export const GradientStripeStyled = styled.div<GradientStyledPropsType>`
   height: 100%;
   box-sizing: border-box;
   background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
-  background: ${({ $angle }) => `linear-gradient(${$angle}deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)`};
+  background: ${({ $angle }) => `linear-gradient(${$angle}deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 33%, rgba(255,255,255,1) 100%)`};
 `;

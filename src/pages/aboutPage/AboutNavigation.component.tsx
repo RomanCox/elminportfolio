@@ -51,9 +51,9 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
             <ChaptersStyled>
                 <ButtonsContainerStyled>
                     <NavigationItemsWrapperStyled>
-                        {/*<NavigationGradientContainerStyled $left>*/}
-                        {/*    <Gradient angle={-90}/>*/}
-                        {/*</NavigationGradientContainerStyled>*/}
+                        <NavigationGradientContainerStyled $left>
+                            <Gradient angle={-90}/>
+                        </NavigationGradientContainerStyled>
                         <NavigationItemsContainerStyled>
                             {navigationChapters.map(chapter =>
                                 <NavigationItemStyled
