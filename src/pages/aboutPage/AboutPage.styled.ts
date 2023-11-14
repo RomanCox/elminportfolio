@@ -10,6 +10,11 @@ interface GradientStyledPropsType {
     $bottom?: boolean;
 }
 
+interface NavigationGradientStyledPropsType {
+    $left?: boolean;
+    $right?: boolean;
+}
+
 export const AboutPageContainerStyled = styled.div`
   width: 100%;
   max-width: 100%;
@@ -152,7 +157,6 @@ export const ChaptersStyled = styled.div`
 
 export const ButtonsContainerStyled = styled.div`
   max-width: 100%;
-  // height: 60px;
   padding-left: 5px;
   box-sizing: border-box;
   display: flex;
@@ -161,9 +165,29 @@ export const ButtonsContainerStyled = styled.div`
   gap: 40px;
 `;
 
+export const NavigationItemsWrapperStyled = styled.div`
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const NavigationGradientContainerStyled = styled.div<NavigationGradientStyledPropsType>`
+  width: 32px;
+  height: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: ${({$left = false}) => $left ? '-2px' : 'auto'};
+  right: ${({$right = false}) => $right ? '-2px' : 'auto'};
+  z-index: 1;
+`;
+
 export const NavigationItemsContainerStyled = styled.div`
   max-width: 100%;
   height: 100%;
+  padding: 0 20px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -296,7 +320,6 @@ export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
   top: ${({ $top = false }) => $top ? '-2px' : 'auto'};
   bottom: ${({ $bottom = false }) => $bottom ? '-2px' : 'auto'};
   right: 30px;
-  z-index: 1;
 
   @media screen and (max-width: 1280px) {
     height: 30px;

@@ -15,11 +15,13 @@ import {
     DescriptionContainerStyled,
     ImageContainer,
     ImageStyled,
+    NavigationItemsWrapperStyled,
     NavigationContainerStyled,
     NavigationItemsContainerStyled,
     NavigationItemStyled,
-    TitleContainerStyled,
+    TitleContainerStyled, NavigationGradientContainerStyled,
 } from './AboutPage.styled.ts';
+import {Gradient} from "../../components/gradient";
 
 interface AboutNavigationPropsType {
     activeChapter: string;
@@ -48,19 +50,28 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
             </TitleContainerStyled>
             <ChaptersStyled>
                 <ButtonsContainerStyled>
-                    <NavigationItemsContainerStyled>
-                        {navigationChapters.map(chapter =>
-                            <NavigationItemStyled
-                                key={chapter}
-                                $isActive={chapter === activeChapter}
-                                onClick={() => {
-                                    chooseChapter(chapter);
-                                }}
-                            >
-                                    {windowSize.width <= 1024 || chapter === activeChapter ? chapter : <PhraseRotate value={chapter}/>}
-                            </NavigationItemStyled>)
-                        }
-                    </NavigationItemsContainerStyled>
+                    <NavigationItemsWrapperStyled>
+                        {/*<NavigationGradientContainerStyled $left>*/}
+                        {/*    <Gradient angle={-90}/>*/}
+                        {/*</NavigationGradientContainerStyled>*/}
+                        <NavigationItemsContainerStyled>
+                            {navigationChapters.map(chapter =>
+                                <NavigationItemStyled
+                                    key={chapter}
+                                    $isActive={chapter === activeChapter}
+                                    onClick={() => {
+                                        chooseChapter(chapter);
+                                    }}
+                                >
+                                    {windowSize.width <= 1024 || chapter === activeChapter ? chapter :
+                                        <PhraseRotate value={chapter}/>}
+                                </NavigationItemStyled>)
+                            }
+                        </NavigationItemsContainerStyled>
+                        <NavigationGradientContainerStyled $right>
+                            <Gradient angle={90}/>
+                        </NavigationGradientContainerStyled>
+                    </NavigationItemsWrapperStyled>
                     <CVButtonStyled onClick={openModal}>
                         <CVButtonBorderStyled width='100px' height='100%' viewBox='0 0 100 40'>
                             <polyline points='1,39 99,39 99,1 1,1 1,39'/>
