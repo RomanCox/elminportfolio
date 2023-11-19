@@ -19,7 +19,8 @@ import vrWEBP from '../../assets/images/services/vr.webp';
 
 import {
     ContextContainerStyled,
-    DescriptionContainerStyled,
+    ContextWrapperStyled,
+    DescriptionContainerStyled, GradientContainerStyled,
     ImageStyled,
     ServiceContainerStyled,
     ServiceDescriptionStyled,
@@ -28,6 +29,7 @@ import {
     ServiceTitleStyled,
     TitleContainerStyled,
 } from './ServicesPage.styled.ts';
+import {Gradient} from "../../components/gradient";
 
 const ServicesPage = () => {
     const services = [
@@ -140,26 +142,34 @@ const ServicesPage = () => {
             <TitleContainerStyled>
                 <Title variant='h1' color='#000' text={'Services'}/>
             </TitleContainerStyled>
-            <ContextContainerStyled>
-                {services.map(service =>
-                    <ServiceContainerStyled key={service.id}>
-                        <picture>
-                            <source type={'image/webp'} srcSet={service.imageWEBP}/>
-                            <source type={'image/png'} srcSet={service.imagePNG}/>
-                            <ImageStyled src={service.imagePNG} alt={service.alt} width={190} height={190}/>
-                        </picture>
-                        <DescriptionContainerStyled>
-                            <ServiceTitleStyled>{service.title}</ServiceTitleStyled>
-                            <ServiceLabelStyled>{service.label}</ServiceLabelStyled>
-                            {service.description.map((description, index) =>
-                                <ServiceDescriptionStyled key={description} $first={index === 0}>
-                                    {description}
-                                </ServiceDescriptionStyled>,
-                            )}
-                        </DescriptionContainerStyled>
-                    </ServiceContainerStyled>,
-                )}
-            </ContextContainerStyled>
+            <ContextWrapperStyled>
+                <GradientContainerStyled $top>
+                    <Gradient/>
+                </GradientContainerStyled>
+                <ContextContainerStyled>
+                    {services.map(service =>
+                        <ServiceContainerStyled key={service.id}>
+                            <picture>
+                                <source type={'image/webp'} srcSet={service.imageWEBP}/>
+                                <source type={'image/png'} srcSet={service.imagePNG}/>
+                                <ImageStyled src={service.imagePNG} alt={service.alt} width={190} height={190}/>
+                            </picture>
+                            <DescriptionContainerStyled>
+                                <ServiceTitleStyled>{service.title}</ServiceTitleStyled>
+                                <ServiceLabelStyled>{service.label}</ServiceLabelStyled>
+                                {service.description.map((description, index) =>
+                                    <ServiceDescriptionStyled key={description} $first={index === 0}>
+                                        {description}
+                                    </ServiceDescriptionStyled>,
+                                )}
+                            </DescriptionContainerStyled>
+                        </ServiceContainerStyled>,
+                    )}
+                </ContextContainerStyled>
+                <GradientContainerStyled $bottom>
+                    <Gradient angle={180}/>
+                </GradientContainerStyled>
+            </ContextWrapperStyled>
         </ServicesPageContainerStyled>
     );
 };

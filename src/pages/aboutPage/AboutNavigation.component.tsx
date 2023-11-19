@@ -1,6 +1,7 @@
 import {useWindowSize} from '../../hooks/useWindowsize';
 
 import {Title} from '../../components/title';
+// import {Gradient} from '../../components/gradient';
 import {DownloadIcon} from '../../assets/icons/downloadIcon.tsx';
 import {PhraseRotate} from '../../components/phraseRotate';
 import photo from '../../assets/images/avatar.png';
@@ -19,9 +20,9 @@ import {
     NavigationContainerStyled,
     NavigationItemsContainerStyled,
     NavigationItemStyled,
-    TitleContainerStyled, NavigationGradientContainerStyled,
+    TitleContainerStyled,
+    // NavigationGradientContainerStyled,
 } from './AboutPage.styled.ts';
-import {Gradient} from "../../components/gradient";
 
 interface AboutNavigationPropsType {
     activeChapter: string;
@@ -51,9 +52,9 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
             <ChaptersStyled>
                 <ButtonsContainerStyled>
                     <NavigationItemsWrapperStyled>
-                        <NavigationGradientContainerStyled $left>
-                            <Gradient angle={-90}/>
-                        </NavigationGradientContainerStyled>
+                        {/*<NavigationGradientContainerStyled $left>*/}
+                        {/*    <Gradient angle={-90}/>*/}
+                        {/*</NavigationGradientContainerStyled>*/}
                         <NavigationItemsContainerStyled>
                             {navigationChapters.map(chapter =>
                                 <NavigationItemStyled
@@ -68,9 +69,9 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
                                 </NavigationItemStyled>)
                             }
                         </NavigationItemsContainerStyled>
-                        <NavigationGradientContainerStyled $right>
-                            <Gradient angle={90}/>
-                        </NavigationGradientContainerStyled>
+                        {/*<NavigationGradientContainerStyled $right>*/}
+                        {/*    <Gradient angle={90}/>*/}
+                        {/*</NavigationGradientContainerStyled>*/}
                     </NavigationItemsWrapperStyled>
                     <CVButtonStyled onClick={openModal}>
                         <CVButtonBorderStyled width='100px' height='100%' viewBox='0 0 100 40'>

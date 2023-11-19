@@ -4,6 +4,11 @@ interface ServiceDescriptionStyledPropsType {
     $first: boolean;
 }
 
+interface GradientStyledPropsType {
+    $top?: boolean;
+    $bottom?: boolean;
+}
+
 export const ServicesPageContainerStyled = styled.div`
   width: 100%;
   height: 100vh;
@@ -37,11 +42,36 @@ export const TitleContainerStyled = styled.div`
   }
 `;
 
+export const ContextWrapperStyled = styled.div`
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+  margin-bottom: 75px;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+`;
+
+export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
+  width: 100%;
+  height: 52px;
+  box-sizing: border-box;
+  position: absolute;
+  top: ${({ $top = false }) => $top ? '-2px' : 'auto'};
+  bottom: ${({ $bottom = false }) => $bottom ? '-2px' : 'auto'};
+  right: 30px;
+  z-index: 1;
+
+  @media screen and (max-width: 1280px) {
+    height: 30px;
+  }
+`;
+
 export const ContextContainerStyled = styled.div`
   width: 100%;
   max-height: calc(100% - 147px);
-  padding: 30px 30px 0;
-  margin-bottom: 75px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
@@ -49,6 +79,8 @@ export const ContextContainerStyled = styled.div`
   flex-wrap: wrap;
   overflow: auto;
   scrollbar-width: thin;
+  position: relative;
+  z-index: 0;
 `;
 
 export const ServiceContainerStyled = styled.div`

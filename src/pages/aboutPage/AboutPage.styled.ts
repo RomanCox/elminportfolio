@@ -5,7 +5,6 @@ interface NavigationItemStyledPropsType {
 }
 
 interface GradientStyledPropsType {
-    $reverse?: boolean;
     $top?: boolean;
     $bottom?: boolean;
 }
