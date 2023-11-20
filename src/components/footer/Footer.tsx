@@ -15,24 +15,25 @@ import {
 export interface FooterPropsType {
     menuIsClose: () => void;
     homePage: boolean;
+    isMobile?: boolean;
 }
 
-export const Footer = ({menuIsClose, homePage}: FooterPropsType) => {
+export const Footer = ({menuIsClose, homePage, isMobile}: FooterPropsType) => {
     const windowSize = useWindowSize();
 
     return (
         <FooterWrapperStyled $homePage={homePage} onClick={menuIsClose}>
             <FooterContainerStyled>
-                <LocationContainerStyled $homePage={homePage}>
+                {!isMobile && <LocationContainerStyled $homePage={homePage}>
                     Minsk, Belarus
-                </LocationContainerStyled>
+                </LocationContainerStyled>}
                 {windowSize.width <= 1024 && homePage &&
                     <SocialLinksContainerStyled $center>
                         <IconSet/>
                     </SocialLinksContainerStyled>
                 }
                 <SocialLinksContainerStyled>
-                    {homePage ? <LinkStyled to={PATH.PORTFOLIO}>Portfolio</LinkStyled>
+                    {homePage ? !isMobile && <LinkStyled to={PATH.PORTFOLIO}>Portfolio</LinkStyled>
                         : <IconSet/>
                     }
                 </SocialLinksContainerStyled>

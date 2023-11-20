@@ -2,11 +2,10 @@ import {useEffect, useRef, useState} from 'react';
 
 import {useWindowSize} from '../../hooks/useWindowsize';
 
+import {BurgerButton} from '../burgerButton';
 import {Logo} from '../logo';
 import {IconSet} from '../iconSet';
 import {PATH} from '../../App.tsx';
-
-import {BurgerButton} from './BurgerButton.tsx';
 
 import {
     BottomLineStyled,
@@ -24,6 +23,7 @@ interface HeaderPropsType {
     menuSwitch: () => void;
     menuIsClose: () => void;
     homePage: boolean;
+    isMobile: boolean;
 }
 
 export const Header = ({
@@ -31,6 +31,7 @@ export const Header = ({
                            menuSwitch,
                            menuIsClose,
                            homePage,
+                           isMobile,
                        }: HeaderPropsType) => {
     const [isShowBurgerButton, setIsShowBurgerButton] = useState<boolean>(false);
     const [width, setWidth] = useState<number>(0);
@@ -59,9 +60,9 @@ export const Header = ({
         <HeaderContainerStyled $homePage={homePage} onClick={menuIsClose}>
             {homePage
                 ? <>
-                    <BurgerButtonContainerStyled $homePage={homePage} $width={width}>
-                        <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
-                    </BurgerButtonContainerStyled>
+                    {!isMobile && <BurgerButtonContainerStyled $homePage={homePage} $width={width}>
+                        <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage} isMobile={isMobile}/>
+                    </BurgerButtonContainerStyled>}
                     <LogoContainerStyled to={PATH.HOME} $homePage>
                         <Logo variant='white' homePage/>
                     </LogoContainerStyled>
@@ -77,7 +78,7 @@ export const Header = ({
                     </LogoContainerStyled>
                     {isShowBurgerButton
                         ? <BurgerButtonContainerStyled>
-                            <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage}/>
+                            <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage} isMobile={isMobile}/>
                         </BurgerButtonContainerStyled>
                         : <NavbarStyled>
                             <NavbarItemStyled to={PATH.HOME} $visited={location.pathname === PATH.HOME}>

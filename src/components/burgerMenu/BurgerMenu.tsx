@@ -7,21 +7,20 @@ interface BurgerMenuPropsType {
     menuIsShow: boolean;
     menuSwitch: () => void;
     homePage: boolean;
-    menuIndent: number;
+    isMobile?: boolean;
+    menuIndent?: number;
 }
 
-export const BurgerMenu = ({menuIsShow, menuSwitch, homePage, menuIndent}: BurgerMenuPropsType) => {
+export const BurgerMenu = ({menuIsShow, menuSwitch, homePage, isMobile = false, menuIndent = 0}: BurgerMenuPropsType) => {
     const onClickHandler = (e: MouseEvent) => {
         e.stopPropagation();
         menuSwitch();
     }
 
-    console.log(homePage)
-
     return (
         <>
-            {menuIsShow && <WrapperStyled onClick={e => onClickHandler(e)}/>}
-            <MenuContainerStyled $menuIsShow={menuIsShow} $homePage={homePage} $menuIndent={menuIndent}>
+            {menuIsShow && !isMobile && <WrapperStyled onClick={e => onClickHandler(e)}/>}
+            <MenuContainerStyled $menuIsShow={menuIsShow} $homePage={homePage} $menuIndent={menuIndent} $isMobile={isMobile}>
                 <NavbarStyled $homePage={homePage} onClick={menuSwitch}>
                     {!homePage && <NavbarItemStyled to={PATH.HOME} $homePage={homePage}>
                         Home

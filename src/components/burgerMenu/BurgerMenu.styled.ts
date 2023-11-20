@@ -5,8 +5,9 @@ interface HomePagePropsType {
     $homePage: boolean;
 }
 
-interface MenuContainerStyledPropsType {
+interface MenuContainerStyledPropsType extends HomePagePropsType {
     $menuIsShow: boolean;
+    $isMobile: boolean;
     $menuIndent: number;
 }
 
@@ -49,6 +50,12 @@ export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & Hom
             : $homePage ? 'translate(-50%, -100%)' : 'translateY(-100%)'
     };
   }
+
+  @media screen and (max-width: 500px) {
+    width: ${({$homePage}) => $homePage ? '100%' : 'auto'};
+    height: ${({$homePage}) => $homePage ? 'auto' : 'auto'};
+    position: ${({$homePage}) => $homePage ? 'static' : 'absolute'};
+  };
 `;
 
 export const NavbarStyled = styled.nav<HomePagePropsType>`
@@ -71,21 +78,18 @@ export const NavbarItemStyled = styled(NavLink)<HomePagePropsType>`
   font-size: 20px;
   font-weight: 400;
   line-height: 30px;
-  // color: #fff;
   color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
   text-decoration: none;
   cursor: pointer;
   user-select: none;
 
   &:hover {
-    // color: #fff;
     color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
     font-size: 26px;
     font-weight: 600;
   }
 
   &:visited {
-    // color: #fff;
     color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
   }
 `;

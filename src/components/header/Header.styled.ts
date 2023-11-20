@@ -2,8 +2,6 @@ import styled from 'styled-components';
 
 import {NavLink} from 'react-router-dom';
 
-import {type BurgerStyledPropsType} from './BurgerButton.tsx';
-
 interface HeaderPropsType {
     $homePage?: boolean;
 }
@@ -39,6 +37,10 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   @media screen and (max-width: 899px) {
     align-items: center;
   }
+
+  @media screen and (max-width: 500px) {
+    padding: 15px 20vw;
+  }
 `;
 
 export const BurgerButtonContainerStyled = styled.div<WidthPropsType>`
@@ -46,7 +48,6 @@ export const BurgerButtonContainerStyled = styled.div<WidthPropsType>`
 
   @media screen and (max-width: 1024px) {
     position: absolute;
-    // top: ${({$homePage}) => $homePage ? '40px' : '30px'};
     top: 50%;
     left: ${({$homePage}) => $homePage ? '30px' : 'auto'};
     right: ${({$homePage}) => $homePage ? 'auto' : '30px'};
@@ -54,67 +55,17 @@ export const BurgerButtonContainerStyled = styled.div<WidthPropsType>`
   }
 `;
 
-export const BurgerButtonStyled = styled.div`
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  background: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
-
-export const BarsStyled = styled.div<BurgerStyledPropsType>`
-  width: 90%;
-  height: 5px;
-  border-radius: 2.5px;
-  background-color: ${({$isBurgerMenuOpened, $homePage}) =>
-          $isBurgerMenuOpened ? 'transparent' : $homePage ? '#fff' : '#000'};
-  position: relative;
-  transition: ${({$isBurgerMenuOpened}) =>
-          $isBurgerMenuOpened ? 'all 0ms 300ms' : 'none'};
-
-  &:before {
-    content: '';
-    width: 100%;
-    height: 5px;
-    border-radius: 2.5px;
-    position: absolute;
-    left: 0;
-    bottom: ${({$isBurgerMenuOpened}) =>
-            $isBurgerMenuOpened ? '0' : '10px'};
-    transform: ${({$isBurgerMenuOpened}) =>
-            $isBurgerMenuOpened ? 'rotate(-45deg)' : 'none'};
-    background-color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
-    transition: ${({$isBurgerMenuOpened}) =>
-            $isBurgerMenuOpened
-                    ? 'bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)'
-                    : 'bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)'};
-  }
-
-  &:after {
-    content: '';
-    width: 100%;
-    height: 5px;
-    border-radius: 2.5px;
-    position: absolute;
-    left: 0;
-    top: ${({$isBurgerMenuOpened}) => ($isBurgerMenuOpened ? '0' : '10px')};
-    transform: ${({$isBurgerMenuOpened}) =>
-            $isBurgerMenuOpened ? 'rotate(45deg)' : 'none'};
-    background-color: ${({$homePage}) => $homePage ? '#fff' : '#000'};
-    transition: ${({$isBurgerMenuOpened}) =>
-            $isBurgerMenuOpened
-                    ? 'top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1)'
-                    : 'top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1)'};
-  }
-`;
-
 export const LogoContainerStyled = styled(NavLink)<HeaderPropsType>`
   width: ${({$homePage = false}) => $homePage ? '300px' : '200px'};
   height: ${({$homePage = false}) => $homePage ? '75px' : '50px'};
   font-size: ${({$homePage = false}) => $homePage ? '12px' : '8px'};
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    max-width: 200px;
+    height: 15vw;
+    max-height: 75px;
+  }
 `;
 
 export const SocialLinksContainerStyled = styled.div`

@@ -96,11 +96,11 @@ export const AfterBlockStyled = styled.div<LogoShowType>`
     }
   }
 
-  @media screen and (max-width: 439px) {
-    height: calc(15px + (20 - 15) * (100vw - 320px) / (439 - 320));
+  @media screen and (max-width: 500px) {
+    height: calc(10px + (20 - 10) * (100vw - 320px) / (439 - 320));
     bottom: calc(-7.5px + (-11 + 7.5) * (100vw - 320px) / (439 - 320));
-    font-size: calc(12px + (16 - 12) * (100vw - 320px) / (439 - 320));
-    line-height: calc(15px + (20 - 15) * (100vw - 320px) / (439 - 320));
+    font-size: calc(8px + (16 - 8) * (100vw - 320px) / (439 - 320));
+    line-height: calc(10px + (20 - 10) * (100vw - 320px) / (439 - 320));
 
     @keyframes expanding {
       0% {

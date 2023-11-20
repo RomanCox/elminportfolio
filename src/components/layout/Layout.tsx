@@ -2,13 +2,12 @@ import {useEffect, useState} from 'react';
 import {Outlet, useLocation} from 'react-router-dom';
 import {useWindowSize} from '../../hooks/useWindowsize';
 
-import {PATH} from '../../App.tsx';
+import {MobilePropsType, PATH} from '../../App.tsx';
 import {BurgerMenu} from '../burgerMenu';
 import {Header} from '../header';
 import {Footer} from '../footer';
 
-
-export const Layout = () => {
+export const Layout = ({isMobile}: MobilePropsType) => {
     const [menuIsShow, setMenuIsShow] = useState<boolean>(false);
     const [menuIndent, setMenuIndent] = useState<number>(0);
 
@@ -34,12 +33,12 @@ export const Layout = () => {
 
     return (
         <>
-            <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
-                        homePage={location.pathname === PATH.HOME} menuIndent={menuIndent}/>
+            {!isMobile && <BurgerMenu menuIsShow={menuIsShow} menuSwitch={menuSwitch}
+                         homePage={location.pathname === PATH.HOME} menuIndent={menuIndent}/>}
             <Header menuIsShow={menuIsShow} menuSwitch={menuSwitch} menuIsClose={menuIsClose}
-                    homePage={location.pathname === PATH.HOME}/>
+                    homePage={location.pathname === PATH.HOME} isMobile={isMobile}/>
             <Outlet/>
-            <Footer homePage={location.pathname === PATH.HOME} menuIsClose={menuIsClose}/>
+            <Footer homePage={location.pathname === PATH.HOME} menuIsClose={menuIsClose} isMobile={isMobile}/>
         </>
     )
 }
