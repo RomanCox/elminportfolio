@@ -45,7 +45,6 @@ export const TitleContainerStyled = styled.div`
 export const ContextWrapperStyled = styled.div`
   width: 100%;
   height: 100%;
-  padding-left: 30px;
   margin-bottom: 75px;
   box-sizing: border-box;
   flex-wrap: wrap;
@@ -71,11 +70,13 @@ export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
 
 export const ContextContainerStyled = styled.div`
   width: 100%;
-  max-height: calc(100% - 147px);
+  max-height: 100%;
+  padding: 0 30px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 30px;
   flex-wrap: wrap;
   overflow: auto;
   scrollbar-width: thin;
@@ -84,7 +85,8 @@ export const ContextContainerStyled = styled.div`
 `;
 
 export const ServiceContainerStyled = styled.div`
-  padding: 20px 0;
+  width: 30vw;
+  padding: 25px 0;
   box-sizing: border-box;
   display: flex;
   gap: 50px;

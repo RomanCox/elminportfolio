@@ -39,6 +39,7 @@ export const App = () => {
         if (windowSize.width > 500) {
             setIsMobile(false);
         }
+        document.documentElement.style.setProperty('--vh', `${windowSize.height * 0.01}px`);
     }, [windowSize]);
 
     return (

@@ -208,6 +208,11 @@ export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
   scrollbar-width: thin;
 `;
 
+export const IframeContainer = styled.div<VideoContainerPropsType>`
+  width: 60vw;
+  height: 33.75vw;
+  background-image: ${({$image}) => `url(${$image})`};
+`;
 
 export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
   width: calc((100vw - 85px) / 2);

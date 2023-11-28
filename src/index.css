@@ -29,8 +29,8 @@ select {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  //margin: 0 auto;
-  //box-sizing: border-box;
+  margin: 0 auto;
+  box-sizing: border-box;
   text-align: center;
 }
 
@@ -44,25 +44,9 @@ a:hover {
 }
 
 body {
-  /*min-width: 320px;*/
-  /*min-height: 100vh;*/
-  /*margin: 0;*/
-  /*box-sizing: border-box;*/
-  /*display: flex;*/
-  /*justify-content: center;*/
-  /*align-items: center;*/
-
   scrollbar-color: rgba(36, 36, 36, 0.3) rgba(36, 36, 36, 0.7);
   scrollbar-width: thin;
 }
-
-/*.app {*/
-/*  width: 100%;*/
-/*  max-width: 1920px;*/
-/*  min-width: 320px;*/
-/*  max-height: 100vh;*/
-/*  min-height: 100vh;*/
-/*}*/
 
 h1 {
   font-size: 3.2em;

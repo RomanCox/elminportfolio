@@ -1,5 +1,5 @@
 import {useEffect, useRef, useState} from 'react';
-
+import {useLocation} from 'react-router-dom';
 import {useWindowSize} from '../../hooks/useWindowsize';
 
 import {BurgerButton} from '../burgerButton';
@@ -16,7 +16,6 @@ import {
     NavbarStyled,
     SocialLinksContainerStyled,
 } from './Header.styled.ts';
-import {useLocation} from "react-router-dom";
 
 interface HeaderPropsType {
     menuIsShow: boolean;
@@ -48,13 +47,11 @@ export const Header = ({
         if (windowSize.width && windowSize.width < 900) {
             setIsShowBurgerButton(true);
         }
-    }, [windowSize.width]);
 
-    useEffect(() => {
-        if (div && div.current) {
-            setWidth(div.current.offsetWidth)
+        if (windowSize.width && windowSize.width > 1024) {
+            div?.current && setWidth(div.current.offsetWidth)
         }
-    }, [div, div.current]);
+    }, [windowSize, div.current]);
 
     return (
         <HeaderContainerStyled $homePage={homePage} onClick={menuIsClose}>
@@ -67,7 +64,7 @@ export const Header = ({
                         <Logo variant='white' homePage/>
                     </LogoContainerStyled>
                     {windowSize.width > 1024 &&
-                        <SocialLinksContainerStyled>
+                        <SocialLinksContainerStyled ref={div}>
                             <IconSet/>
                         </SocialLinksContainerStyled>
                     }

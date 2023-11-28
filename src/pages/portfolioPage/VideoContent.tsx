@@ -5,7 +5,7 @@ import {youtubeAPI} from '../../api/youtubeAPI.ts';
 import {Modal} from '../../components/modal';
 
 import {ScrollPropsType} from './PortfolioContent.tsx';
-import {VideoContainerStyled, VideosContainerStyled,} from './PortfolioPage.styled.ts';
+import {VideosContainerStyled, IframeContainer, VideoContainerStyled} from './PortfolioPage.styled.ts';
 import {ItemType} from "../../api/youtubeAPI.types.ts";
 
 export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
@@ -16,6 +16,7 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
     const openModal = (id: string) => {
         setModalIsShow(true);
         setVideoInModal(id);
+        // videos.filter(video => video.id === id)[0].snippet.thumbnails.maxres.url;
     };
 
     const closeModal = () => {
@@ -42,13 +43,16 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
     return (
         <VideosContainerStyled $isScroll={isScroll}>
             {videos.length && modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
-                <iframe
-                    width='560' height='315'
-                    src={`https://www.youtube.com/embed/${videos.filter(video => video.id === videoInModal)[0].contentDetails.videoId}`}
-                    title={videos.filter(video => video.id === videoInModal)[0].snippet.title}
-                    allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                    allowFullScreen
-                />
+                <IframeContainer $image={videos.filter(video => video.id === videoInModal)[0].snippet.thumbnails.maxres.url}>
+                    <iframe
+                        width='100%'
+                        height='100%'
+                        src={`https://www.youtube.com/embed/${videos.filter(video => video.id === videoInModal)[0].contentDetails.videoId}`}
+                        title={videos.filter(video => video.id === videoInModal)[0].snippet.title}
+                        allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                        allowFullScreen
+                    />
+                    </IframeContainer>
             </Modal>}
             {videos.length
                 ? videos.map(video =>

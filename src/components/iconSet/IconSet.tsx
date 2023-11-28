@@ -6,6 +6,8 @@ import instagramWEBP from '../../assets/icons/instagram.webp';
 import instagramPNG from '../../assets/icons/instagram.png';
 import behanceWEBP from '../../assets/icons/behance.webp';
 import behancePNG from '../../assets/icons/behance.png';
+import youtubeWEBP from '../../assets/icons/youtube.webp';
+import youtubePNG from '../../assets/icons/youtube.png';
 
 import {ImageStyled, SocialLinkContainerStyled, SocialLinkStyled} from './IconSet.styled.ts';
 
@@ -46,8 +48,8 @@ export const IconSet = () => {
         {
         	id: 4,
         	title: 'Youtube',
-        	iconWEBP: linkedInWEBP,
-        	iconPNG: linkedInPNG,
+        	iconWEBP: youtubeWEBP,
+        	iconPNG: youtubePNG,
         	link: 'https://www.youtube.com/channel/UC3w6lpvEkOH6LDl0m_YJrUw',
         	alt: 'Youtube logo',
         },

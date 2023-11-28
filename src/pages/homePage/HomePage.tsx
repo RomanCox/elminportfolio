@@ -27,10 +27,6 @@ const HomePage = ({isMobile}: MobilePropsType) => {
         setMenuIsShow(!menuIsShow);
     };
 
-    // const menuIsClose = () => {
-    //     setMenuIsShow(false);
-    // };
-
     return (
         <HomePageContainerStyled>
             <VideoBG/>
@@ -39,10 +35,10 @@ const HomePage = ({isMobile}: MobilePropsType) => {
                     ? <ContentContainerStyled $menuIsShow={menuIsShow}>
                         <FrameStyled>
                             <TitleContainer>
-                                <Title text={'Elmin Karaev'} variant={'h2'} color={'#fff'}/>
+                                <Title text={'ELMIN KARAEV'} variant={'h2'} color={'#fff'}/>
                             </TitleContainer>
                             <ServicesListContainer>
-                                3D Modeling | visualization | animation | interactive | VR
+                                3d modeling | visualization | animation | interactive | vr
                             </ServicesListContainer>
                         </FrameStyled>
                         <FrameStyled>
@@ -62,20 +58,12 @@ const HomePage = ({isMobile}: MobilePropsType) => {
                             </NavBarContainerStyled>
                         </FrameStyled>
                     </ContentContainerStyled>
-                    // ? <>
-                    //     <TitleContainer>
-                    //         <Title text={'Elmin Karaev'} variant={'h2'} color={'#fff'}/>
-                    //     </TitleContainer>
-                    //     <ServicesListContainer>
-                    //         3D Modeling | visualization | animation | interactive | VR
-                    //     </ServicesListContainer>
-                    // </>
                     : <>
                         <TitleContainer>
-                            <Title text={'Elmin Karaev'} variant={'h2'} color={'#fff'}/>
+                            <Title text={'ELMIN KARAEV'} variant={'h2'} color={'#fff'}/>
                         </TitleContainer>
                         <ServicesListContainer>
-                            3D Modeling | visualization | animation | interactive | VR
+                            3d modeling | visualization | animation | interactive | vr
                         </ServicesListContainer>
                         <ButtonStyled
                             component={NavLink}
