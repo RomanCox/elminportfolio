@@ -86,6 +86,7 @@ export const ContextContainerStyled = styled.div`
 
 export const ServiceContainerStyled = styled.div`
   width: 30vw;
+  min-width: 570px;
   padding: 25px 0;
   box-sizing: border-box;
   display: flex;
@@ -97,7 +98,6 @@ export const ImageStyled = styled.img`
 `;
 
 export const DescriptionContainerStyled = styled.div`
-  width: 350px;
   height: 100%;
   box-sizing: border-box;
   display: flex;

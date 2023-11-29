@@ -18,22 +18,22 @@ import {
 } from './Header.styled.ts';
 
 interface HeaderPropsType {
-    menuIsShow: boolean;
-    menuSwitch: () => void;
-    menuIsClose: () => void;
+    sidebarIsShow: boolean;
+    sidebarOpen: () => void;
+    sidebarClose: () => void;
     homePage: boolean;
     isMobile: boolean;
 }
 
 export const Header = ({
-                           menuIsShow,
-                           menuSwitch,
-                           menuIsClose,
+                           sidebarIsShow,
+                           sidebarOpen,
+                           sidebarClose,
                            homePage,
                            isMobile,
                        }: HeaderPropsType) => {
     const [isShowBurgerButton, setIsShowBurgerButton] = useState<boolean>(false);
-    const [width, setWidth] = useState<number>(0);
+    const [width, setWidth] = useState<number>(190);
     const location = useLocation();
 
     const windowSize = useWindowSize();
@@ -54,11 +54,16 @@ export const Header = ({
     }, [windowSize, div.current]);
 
     return (
-        <HeaderContainerStyled $homePage={homePage} onClick={menuIsClose}>
+        <HeaderContainerStyled $homePage={homePage} onClick={homePage ? undefined : sidebarClose}>
             {homePage
                 ? <>
                     {!isMobile && <BurgerButtonContainerStyled $homePage={homePage} $width={width}>
-                        <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage} isMobile={isMobile}/>
+                        <BurgerButton
+                            menuIsShow={sidebarIsShow}
+                            menuSwitch={sidebarIsShow ? sidebarClose : sidebarOpen}
+                            homePage={homePage}
+                            isMobile={isMobile}
+                        />
                     </BurgerButtonContainerStyled>}
                     <LogoContainerStyled to={PATH.HOME} $homePage>
                         <Logo variant='white' homePage/>
@@ -75,7 +80,7 @@ export const Header = ({
                     </LogoContainerStyled>
                     {isShowBurgerButton
                         ? <BurgerButtonContainerStyled>
-                            <BurgerButton menuIsShow={menuIsShow} menuSwitch={menuSwitch} homePage={homePage} isMobile={isMobile}/>
+                            <BurgerButton menuIsShow={sidebarIsShow} menuSwitch={sidebarOpen} homePage={homePage} isMobile={isMobile}/>
                         </BurgerButtonContainerStyled>
                         : <NavbarStyled>
                             <NavbarItemStyled to={PATH.HOME} $visited={location.pathname === PATH.HOME}>

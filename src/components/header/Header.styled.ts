@@ -22,7 +22,7 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
   top: 0;
   left: 50vw;
   transform: translateX(-50%);
-  z-index: 2;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: ${({$homePage}) => $homePage ? 'center' : 'flex-end'};
@@ -44,7 +44,7 @@ export const HeaderContainerStyled = styled.div<HeaderPropsType>`
 `;
 
 export const BurgerButtonContainerStyled = styled.div<WidthPropsType>`
-  width: ${({$width}) => $width ? `${$width}px` : 'auto'};
+  width: ${({$width}) => `${$width}px`};
 
   @media screen and (max-width: 1024px) {
     position: absolute;

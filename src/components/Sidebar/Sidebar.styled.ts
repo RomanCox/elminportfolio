@@ -5,47 +5,41 @@ interface HomePagePropsType {
     $homePage: boolean;
 }
 
-interface MenuContainerStyledPropsType extends HomePagePropsType {
-    $menuIsShow: boolean;
+interface SidebarContainerStyledPropsType extends HomePagePropsType {
+    $sidebarIsShow: boolean;
     $isMobile: boolean;
-    $menuIndent: number;
+    $sidebarIndent: number;
 }
 
-export const WrapperStyled = styled.div`
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-`;
-
-export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & HomePagePropsType>`
+export const SidebarContainerStyled = styled.div<SidebarContainerStyledPropsType & HomePagePropsType>`
   width: 145px;
   height: 100vh;
-  padding: 130px 30px;
+  padding: 75px 0;
   box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  left: ${({$homePage, $menuIndent}) => $homePage ? $menuIndent : 'auto'};
-  right: ${({$homePage}) => $homePage ? 'auto' : '11px'};
-  z-index: 2;
   display: flex;
   justify-content: ${({$homePage}) => $homePage ? 'flex-start' : 'flex-end'};
   align-items: flex-start;
-  opacity: ${({$menuIsShow}) => $menuIsShow ? '1' : '0'};
-  transform: ${({$menuIsShow, $homePage}) => $menuIsShow
-          ? 'translateX(0)'
-          : $homePage ? 'translateX(-100%)' : 'translateX(100%)'
+  position: absolute;
+  top: 0;
+  left: ${({$homePage, $sidebarIsShow}) => $homePage
+          ? $sidebarIsShow ? '0' : '-100%'
+          : 'auto'
   };
-  transition: ${({$menuIsShow}) =>
-          `transform 0.5s ease-in-out 0s, opacity 0.25s ease-in-out ${$menuIsShow ? '0.15' : '0'}s`};
-  background: ${({$homePage}) => $homePage ? 'transparent' : 'white'};
-
+  right: ${({$homePage, $sidebarIsShow}) => $homePage
+          ? 'auto'
+          : $sidebarIsShow ? '0' : '-100%'
+  };
+  z-index: 1;
+  opacity: ${({$sidebarIsShow}) => $sidebarIsShow ? '1' : '0'};
+  transition: all 0.5s ease-in-out 0s;
+  
   @media screen and (max-width: 1024px) {
     width: auto;
     height: auto;
     padding: 15px;
     top: ${({$homePage}) => $homePage ? '110px' : '85px'};
     left: ${({$homePage}) => $homePage ? '50%' : 'auto'};
-    transform: ${({$menuIsShow, $homePage}) => $menuIsShow
+    transform: ${({$sidebarIsShow, $homePage}) => $sidebarIsShow
             ? $homePage ? 'translate(-50%, 0)' : 'translateY(0)'
             : $homePage ? 'translate(-50%, -100%)' : 'translateY(-100%)'
     };
@@ -59,12 +53,15 @@ export const MenuContainerStyled = styled.div<MenuContainerStyledPropsType & Hom
 `;
 
 export const NavbarStyled = styled.nav<HomePagePropsType>`
+  height: 100%;
+  padding: 55px 30px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: ${({$homePage}) => $homePage ? 'flex-start' : 'flex-end'};
   gap: 20px;
   list-style: none;
+  background: ${({$homePage}) => $homePage ? 'transparent' : 'white'};
 
   @media screen and (max-width: 1024px) {
     align-items: ${({$homePage}) => $homePage ? 'center' : 'flex-end'};

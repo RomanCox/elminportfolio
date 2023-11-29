@@ -13,16 +13,15 @@ import {
 
 
 export interface FooterPropsType {
-    menuIsClose: () => void;
     homePage: boolean;
     isMobile?: boolean;
 }
 
-export const Footer = ({menuIsClose, homePage, isMobile}: FooterPropsType) => {
+export const Footer = ({homePage, isMobile}: FooterPropsType) => {
     const windowSize = useWindowSize();
 
     return (
-        <FooterWrapperStyled $homePage={homePage} onClick={menuIsClose}>
+        <FooterWrapperStyled $homePage={homePage}>
             <FooterContainerStyled>
                 {!isMobile && <LocationContainerStyled $homePage={homePage}>
                     Minsk, Belarus
