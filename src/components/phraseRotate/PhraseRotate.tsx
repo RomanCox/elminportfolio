@@ -7,13 +7,12 @@ interface PhraseRotatePropsType {
 export const PhraseRotate = ({value}: PhraseRotatePropsType) => {
     const letters = value.trim().split('');
 
-    console.log(letters)
-
     return (
         <PhraseContainerStyled>
             <LettersContainerStyled>
                 {letters.map((letter, idx) =>
                     <LetterStyled
+                        key={idx}
                         $idx={idx}
                         $width={letter === ' ' ? '12px' : 'auto'}
                     >
@@ -24,6 +23,7 @@ export const PhraseRotate = ({value}: PhraseRotatePropsType) => {
             <LettersContainerStyled $bottom>
                 {letters.map((letter, idx) =>
                     <LetterStyled
+                        key={idx}
                         $idx={idx}
                         $width={letter === ' ' ? '12px' : 'auto'}
                         $bottom
