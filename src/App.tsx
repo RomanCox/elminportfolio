@@ -1,6 +1,6 @@
 import {Suspense, useEffect, useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
-import Div100vh from 'react-div-100vh';
+// import Div100vh from 'react-div-100vh';
 import {useWindowSize} from './hooks/useWindowsize';
 import {MainPageAsync} from './pages/mainPage';
 import {Layout} from './components/layout';
@@ -47,7 +47,7 @@ export const App = () => {
     console.log(window.outerHeight, window.visualViewport?.height)
 
     return (
-        <Div100vh>
+        // <Div100vh>
             <AppContainerStyled>
                 {/*TODO create <Loading/>*/}
                 <Suspense fallback={<Loading/>}>
@@ -64,7 +64,7 @@ export const App = () => {
                     </Routes>
                 </Suspense>
             </AppContainerStyled>
-        </Div100vh>
+        // </Div100vh>
     )
 }
 
