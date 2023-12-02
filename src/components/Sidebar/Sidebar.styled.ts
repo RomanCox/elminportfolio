@@ -14,7 +14,7 @@ interface SidebarContainerStyledPropsType extends HomePagePropsType {
 export const SidebarContainerStyled = styled.div<SidebarContainerStyledPropsType & HomePagePropsType>`
   width: 145px;
   height: 100vh;
-  padding: 75px 0;
+  padding: 85px 0;
   box-sizing: border-box;
   display: flex;
   justify-content: ${({$homePage}) => $homePage ? 'flex-start' : 'flex-end'};

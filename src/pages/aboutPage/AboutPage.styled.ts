@@ -18,7 +18,7 @@ export const AboutPageContainerStyled = styled.div`
   width: 100%;
   max-width: 100%;
   height: 100vh;
-  padding: 75px 0;
+  padding: 85px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

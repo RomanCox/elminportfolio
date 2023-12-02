@@ -64,7 +64,7 @@ export const LogoContainerStyled = styled(NavLink)<HeaderPropsType>`
     width: 100%;
     max-width: 200px;
     height: 15vw;
-    max-height: 75px;
+    max-height: 55px;
   }
 `;
 

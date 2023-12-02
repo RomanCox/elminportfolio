@@ -12,7 +12,7 @@ interface GradientStyledPropsType {
 export const ServicesPageContainerStyled = styled.div`
   width: 100%;
   height: 100vh;
-  padding-top: 75px;
+  padding-top: 85px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

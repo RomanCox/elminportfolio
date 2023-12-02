@@ -43,7 +43,8 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
     return (
         <VideosContainerStyled $isScroll={isScroll}>
             {videos.length && modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
-                <IframeContainer $image={videos.filter(video => video.id === videoInModal)[0].snippet.thumbnails.maxres.url}>
+                <IframeContainer
+                    $image={videos.filter(video => video.id === videoInModal)[0].snippet.thumbnails.maxres.url}>
                     <iframe
                         width='100%'
                         height='100%'
@@ -52,17 +53,16 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
                         allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
                         allowFullScreen
                     />
-                    </IframeContainer>
+                </IframeContainer>
             </Modal>}
-            {videos.length
-                ? videos.map(video =>
+            {videos.length !== 0 &&
+                videos.map(video =>
                     <VideoContainerStyled
                         key={video.id}
                         $image={video.snippet.thumbnails.standard?.url ? video.snippet.thumbnails.standard.url : ''}
                         onClick={() => openModal(video.id)}
                     />
                 )
-                : null
             }
         </VideosContainerStyled>
     );

@@ -4,7 +4,7 @@ export const ContactsPageContainerStyled = styled.div`
   width: 100%;
   max-width: 1920px;
   min-height: 100vh;
-  padding: 75px 0;
+  padding: 85px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

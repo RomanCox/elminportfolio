@@ -15,7 +15,7 @@ export const PortfolioContent = ({activeChapter}: PortfolioContentPropsType) => 
 
     return (
         <>{
-            activeChapter === 'Interactive & Animation' ? <VideoContent />
+            activeChapter === 'Interactive & Animation' ? <AllContentContainerStyled><VideoContent /></AllContentContainerStyled>
                 : activeChapter === '3D Modeling & Visualization' ? <ModellingContent />
                     : <AllContentContainerStyled>
                         <VideoContent isScroll={activeChapter === 'View All'}/>

@@ -31,7 +31,7 @@ export const PortfolioPageContainerStyled = styled.div`
   width: 100%;
   height: 100vh;
   max-height: 100vh;
-  padding: 75px 0;
+  padding: 85px 0;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -52,6 +52,11 @@ export const NavigationContainerStyled = styled.div`
   gap: 40px;
   position: relative;
   box-sizing: border-box;
+
+  @media screen and (max-width: 500px) {
+    padding: 20px;
+    gap: 20px;
+  }
 `;
 
 export const TitleContainerStyled = styled.div`
@@ -79,6 +84,12 @@ export const TitleAndChaptersContainerStyled = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   gap: 50px;
+
+  @media screen and (max-width: 499px) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
 `;
 
 export const NavigationItemsWrapperStyled = styled.div`
@@ -95,7 +106,7 @@ export const NavigationItemsWrapperStyled = styled.div`
 `;
 
 export const NavigationGradientContainerStyled = styled.div<NavigationGradientStyledPropsType>`
-  width: 32px;
+  width: 20px;
   height: 100%;
   box-sizing: border-box;
   position: absolute;
@@ -193,6 +204,10 @@ export const AllContentContainerStyled = styled.div`
   gap: 50px;
   overflow-y: auto;
   scrollbar-width: thin;
+
+  @media screen and (max-width: 500px) {
+    gap: 20px;
+  }
 `;
 
 export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
@@ -206,6 +221,10 @@ export const VideosContainerStyled = styled.div<ScrollStyledPropsType>`
   gap: 5px;
   overflow-y: ${({ $isScroll = true }) => $isScroll ? 'visible' : 'auto'};
   scrollbar-width: thin;
+
+  @media screen and (max-width: 500px) {
+    padding: 0 20px 0;
+  }
 `;
 
 export const IframeContainer = styled.div<VideoContainerPropsType>`
@@ -225,6 +244,11 @@ export const VideoContainerStyled = styled.div<VideoContainerPropsType>`
   background-size: cover;
   background-repeat: no-repeat;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    width: calc((100vw - 85px));
+    height: calc((100vw - 85px) / 1.777);
+  }
 `;
 
 export const ModellingContentContainerStyled = styled.div<ScrollStyledPropsType>`
