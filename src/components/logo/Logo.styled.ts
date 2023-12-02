@@ -33,6 +33,9 @@ export const LogoStyled = styled.img`
 export const AfterBlockStyled = styled.div<LogoShowType>`
   width: 0;
   height: ${({size}) => size === 'large' ? '16px' : '16%'};
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #fff;
   color: #000;
   position: absolute;
@@ -100,7 +103,7 @@ export const AfterBlockStyled = styled.div<LogoShowType>`
     height: calc(10px + (20 - 10) * (100vw - 320px) / (439 - 320));
     bottom: calc(-7.5px + (-11 + 7.5) * (100vw - 320px) / (439 - 320));
     font-size: calc(8px + (16 - 8) * (100vw - 320px) / (439 - 320));
-    line-height: calc(10px + (20 - 10) * (100vw - 320px) / (439 - 320));
+    line-height: 100%;
 
     @keyframes expanding {
       0% {

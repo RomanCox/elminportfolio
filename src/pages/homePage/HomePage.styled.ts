@@ -19,12 +19,11 @@ export const HomePageContainerStyled = styled.div`
 
   @media screen and (max-width: 500px) {
     height: 100%;
-    // padding: 45vh 0 90px;
     padding: 87vw 0 90px;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
-    gap: 40px;
+    gap: 60px;
   }
 `;
 
