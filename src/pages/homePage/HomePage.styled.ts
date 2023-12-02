@@ -9,9 +9,8 @@ interface ContentContainerStyledPropsType {
 export const HomePageContainerStyled = styled.div`
   width: 100%;
   max-width: 1920px;
-  //min-height: 100vh;
-  //max-height: 100vh;
   height: 100%;
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +90,7 @@ export const ContentContainerStyled = styled.div<ContentContainerStyledPropsType
 
 export const FrameStyled = styled.div`
   width: calc(100vw - 60px);
-  height: 100%;
+  // height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
