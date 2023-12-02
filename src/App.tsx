@@ -1,6 +1,5 @@
 import {Suspense, useEffect, useState} from 'react';
 import {Route, Routes} from 'react-router-dom';
-// import Div100vh from 'react-div-100vh';
 import {useWindowSize} from './hooks/useWindowsize';
 import {MainPageAsync} from './pages/mainPage';
 import {Layout} from './components/layout';
@@ -47,24 +46,22 @@ export const App = () => {
     console.log(window.outerHeight, window.visualViewport?.height)
 
     return (
-        // <Div100vh>
-            <AppContainerStyled>
-                {/*TODO create <Loading/>*/}
-                <Suspense fallback={<Loading/>}>
-                    <Routes>
-                        <Route path={PATH.MAIN} element={<MainPageAsync/>}/>
-                        <Route path={PATH.MAIN} element={<Layout isMobile={isMobile}/>}>
-                            <Route path={PATH.HOME} element={<HomePageAsync isMobile={isMobile}/>}/>
-                            <Route path={PATH.ABOUT} element={<AboutPageAsync/>}/>
-                            <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync/>}/>
-                            <Route path={PATH.SERVICES} element={<ServicesPageAsync/>}/>
-                            <Route path={PATH.CONTACTS} element={<ContactsPageAsync/>}/>
-                            <Route path={PATH.NOTFOUND} element={<NotFoundPageAsync/>}/>
-                        </Route>
-                    </Routes>
-                </Suspense>
-            </AppContainerStyled>
-        // </Div100vh>
+        <AppContainerStyled>
+            {/*TODO create <Loading/>*/}
+            <Suspense fallback={<Loading/>}>
+                <Routes>
+                    <Route path={PATH.MAIN} element={<MainPageAsync/>}/>
+                    <Route path={PATH.MAIN} element={<Layout isMobile={isMobile}/>}>
+                        <Route path={PATH.HOME} element={<HomePageAsync isMobile={isMobile}/>}/>
+                        <Route path={PATH.ABOUT} element={<AboutPageAsync/>}/>
+                        <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync/>}/>
+                        <Route path={PATH.SERVICES} element={<ServicesPageAsync/>}/>
+                        <Route path={PATH.CONTACTS} element={<ContactsPageAsync/>}/>
+                        <Route path={PATH.NOTFOUND} element={<NotFoundPageAsync/>}/>
+                    </Route>
+                </Routes>
+            </Suspense>
+        </AppContainerStyled>
     )
 }
 
