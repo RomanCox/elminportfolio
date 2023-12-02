@@ -7,5 +7,4 @@ export const AppContainerStyled = styled.div`
   height: 100vh;
   max-height: calc(var(--vh, 1vh) * 100);
   margin: 0 auto;
-  overflow: hidden;
 `;
