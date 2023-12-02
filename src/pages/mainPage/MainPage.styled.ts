@@ -68,6 +68,7 @@ export const ContentContainerStyled = styled.div`
   box-sizing: border-box;
 
   @media screen and (max-width: 879px) {
+    height: auto;
     padding-left: calc(10px + (30 - 10) * (100vw - 320px) / (879 - 320));
     padding-right: calc(10px + (30 - 10) * (100vw - 320px) / (879 - 320));
     gap: 20px;
