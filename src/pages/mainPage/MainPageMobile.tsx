@@ -1,11 +1,11 @@
 import {PATH} from '../../App.tsx';
 import {Logo} from '../../components/logo';
-// import photo from '../../assets/images/avatar.png';
+import photo from '../../assets/images/avatar.png';
 
 import {
 	MainPageContainerStyled,
-	// PhotoContainerStyled,
-	// PhotoStyled,
+	PhotoContainerStyled,
+	PhotoStyled,
 	ContentContainerStyled,
 	MobileLogoContainer,
 	LogoContainerStyled,
@@ -22,9 +22,9 @@ export const MainPageMobile = () => <MainPageContainerStyled>
 					<Logo variant='black'/>
 				</LogoContainerStyled>
 			</MobileLogoContainer>
-			{/*<PhotoContainerStyled>*/}
-			{/*	<PhotoStyled src={photo}/>*/}
-			{/*</PhotoContainerStyled>*/}
+			<PhotoContainerStyled>
+				<PhotoStyled src={photo}/>
+			</PhotoContainerStyled>
 			<ContentContainerStyled>
 				<NameContainerStyled>
 					<NameStyled>Elmin Karaev</NameStyled>

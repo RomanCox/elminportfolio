@@ -40,6 +40,8 @@ export const PhotoContainerStyled = styled.div`
   }
 
   @media screen and (max-width: 439px) {
+    width: auto;
+    height: 100%;
     padding: 20px;
     box-sizing: border-box;
   }
