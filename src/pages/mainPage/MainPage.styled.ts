@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 export const MainPageContainerStyled = styled.div`
   width: 100%;
-  max-height: 100%;
+  height: 100%;
   padding: 20px;
   display: flex;
   justify-content: center;
@@ -35,13 +35,12 @@ export const PhotoContainerStyled = styled.div`
 
   @media screen and (max-width: 879px) {
     width: 100%;
-    height: auto;
+    height: 100%;
     max-height: 500px;
   }
 
   @media screen and (max-width: 439px) {
-    width: auto;
-    height: 100%;
+    height: calc(100% - 352px);
     padding: 20px;
     box-sizing: border-box;
   }
@@ -51,6 +50,11 @@ export const PhotoStyled = styled.img`
   width: 100%;
   height: 100%;
   object-fit: contain;
+
+  @media screen and (max-width: 439px) {
+    width: auto;
+    height: 100%;
+  }
 `;
 
 export const ContentContainerStyled = styled.div`
@@ -64,7 +68,6 @@ export const ContentContainerStyled = styled.div`
   box-sizing: border-box;
 
   @media screen and (max-width: 879px) {
-    height: 280px;
     padding-left: calc(10px + (30 - 10) * (100vw - 320px) / (879 - 320));
     padding-right: calc(10px + (30 - 10) * (100vw - 320px) / (879 - 320));
     gap: 20px;
