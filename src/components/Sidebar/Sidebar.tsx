@@ -23,7 +23,7 @@ export const Sidebar = (props: SidebarPropsType) => {
     return (
         <SidebarContainerStyled $sidebarIsShow={isShow} $homePage={homePage} $sidebarIndent={sidebarIndent}
                                 $isMobile={isMobile}>
-            <NavbarStyled $homePage={homePage} onClick={sidebarClose}>
+            <NavbarStyled $homePage={homePage}>
                 {!homePage && <NavbarItemStyled to={PATH.HOME} $homePage={homePage}>
                     Home
                 </NavbarItemStyled>}

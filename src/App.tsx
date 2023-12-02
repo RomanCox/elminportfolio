@@ -9,6 +9,7 @@ import {PortfolioPageAsync} from './pages/portfolioPage';
 import {ServicesPageAsync} from './pages/servicesPage';
 import {ContactsPageAsync} from './pages/contactsPage';
 import {NotFoundPageAsync} from './pages/notFoundPage';
+import {Loading} from './components/loading/Loading.tsx';
 
 import {AppContainerStyled} from './App.styled.ts';
 
@@ -45,7 +46,7 @@ export const App = () => {
     return (
         <AppContainerStyled>
             {/*TODO create <Loading/>*/}
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<Loading/>}>
                 <Routes>
                     <Route path={PATH.MAIN} element={<MainPageAsync/>}/>
                     <Route path={PATH.MAIN} element={<Layout isMobile={isMobile}/>}>
