@@ -21,9 +21,8 @@ export const HomePageContainerStyled = styled.div`
     height: 100%;
     padding: 87vw 0 90px;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
   }
 `;
 
@@ -70,7 +69,7 @@ export const ContentWrapperStyled = styled.div`
   z-index: 1;
 
   @media screen and (max-width: 500px) {
-    height: auto;
+    height: 60%;
     padding: 0 30px;
     align-items: flex-start;
     gap: 20px;
@@ -90,7 +89,6 @@ export const ContentContainerStyled = styled.div<ContentContainerStyledPropsType
 
 export const FrameStyled = styled.div`
   width: calc(100vw - 60px);
-  // height: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -205,9 +203,10 @@ export const ButtonStyled = styled(Button)`
 
 export const ButtonsContainerStyled = styled.div`
   width: 100%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 50px;
+  justify-content: space-between;
+  //gap: 50px;
 `;

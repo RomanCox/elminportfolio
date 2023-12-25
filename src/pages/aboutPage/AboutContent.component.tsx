@@ -31,7 +31,7 @@ export const AboutContent = ({chapter, activeChapter}: AboutContentPropsType) =>
 	return (
 		<ContentContainerStyled ref={chapterRef}>
 			<ContentTitleContainerStyled>
-				<Title variant='h1' color='#000' text={chapter.label}/>
+				<Title variant='h3' color='#000' text={chapter.label}/>
 			</ContentTitleContainerStyled>
 			{chapter.items.map(item =>
 				<EducationContainerStyled key={item.id}>

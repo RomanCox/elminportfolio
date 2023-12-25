@@ -99,7 +99,7 @@ export const NavigationContainerStyled = styled.div`
   }
   
   @media screen and (max-width: 430px) {
-    padding: 15px;
+    padding: 15px 5px;
     gap: 10px;
   }
 `;
@@ -159,7 +159,7 @@ export const ChaptersStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 20px;
+  // gap: 20px;
 
   @media screen and (max-width: 1920px) {
     padding-left: calc(20vw - 210px);
@@ -175,7 +175,7 @@ export const ChaptersStyled = styled.div`
     padding-left: 0;
   }
   
-  @media screen and (max-width: 430px) {
+  @media screen and (max-width: 430px) { 
     gap: 10px;
   }
 `;
@@ -214,15 +214,15 @@ export const NavigationGradientContainerStyled = styled.div<NavigationGradientSt
   box-sizing: border-box;
   position: absolute;
   top: 0;
-  left: ${({$left = false}) => $left ? '-2px' : 'auto'};
-  right: ${({$right = false}) => $right ? '-2px' : 'auto'};
+  left: ${({$left = false}) => $left ? '-7px' : 'auto'};
+  right: ${({$right = false}) => $right ? '-7px' : 'auto'};
   z-index: 1;
 `;
 
 export const NavigationItemsContainerStyled = styled.div`
   max-width: 100%;
   height: 100%;
-  padding: 0 20px;
+  padding: 0;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -235,9 +235,12 @@ export const NavigationItemsContainerStyled = styled.div`
     gap: 20px;
   }
   
-  // TODO delete this padding if gradient will work
+  @media screen and (max-width: 950px) {
+    padding: 0 20px;
+  }
+  
   @media screen and (max-width: 720px) {
-    padding: 0;
+    padding: 0 10px;
   }
 `;
 
@@ -279,7 +282,13 @@ export const CVButtonStyled = styled.button`
   font-weight: 500;
   text-align: center;
   user-select: none;
-
+  
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  
   @media screen and (min-width: 1280px) {
     &:hover, &:active, &:focus {
       outline: none;
@@ -287,10 +296,17 @@ export const CVButtonStyled = styled.button`
     }
   }
   
-  div {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+  @media screen and (max-width: 430px) {
+    width: 100px;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    
+    &:hover, &:active, &:focus {
+      outline: none;
+      color: #000;
+    }
   }
 `;
 
@@ -324,6 +340,10 @@ export const DescriptionContainerStyled = styled.div`
   font-weight: 500;
   text-align: left;
   user-select: none;
+  
+  @media screen and (max-width: 430px) {
+    padding: 0 10px;
+  }
 `;
 
 export const BottomLineStyled = styled.div`
@@ -437,7 +457,7 @@ export const EducationContainerStyled = styled.div`
 `;
 
 export const YearsStyled = styled.div`
-  width: 100px;
+  max-width: 40px;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
