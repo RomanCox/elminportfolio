@@ -74,6 +74,11 @@ export const TitleContainerStyled = styled.div`
     font-size: 32px;
     line-height: 100%;
   }
+  
+  @media screen and (max-width: 430px) {
+    width: 100%;
+    text-align: center;
+  }
 `;
 
 export const TitleAndChaptersContainerStyled = styled.div`
@@ -89,6 +94,10 @@ export const TitleAndChaptersContainerStyled = styled.div`
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
+  }
+  
+  @media screen and (max-width: 430px) {
+    padding-right: 0;
   }
 `;
 
