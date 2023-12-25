@@ -97,7 +97,7 @@ export const FrameStyled = styled.div`
   gap: 20px;
 `;
 
-export const NavBarContainerStyled = styled.div`
+export const NavBarContainerStyled = styled.nav`
   width: 100%;
   height: auto;
   display: flex;
@@ -109,6 +109,7 @@ export const NavBarContainerStyled = styled.div`
 
 export const NavbarItemStyled = styled(NavLink)`
   display: list-item;
+  list-style-type: none;
   text-align: left;
   font-family: Libre Franklin, sans-serif;
   font-size: 16px;
