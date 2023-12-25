@@ -16,13 +16,14 @@ import {
     DescriptionContainerStyled,
     ImageContainer,
     ImageStyled,
-    NavigationItemsWrapperStyled,
     NavigationContainerStyled,
     NavigationItemsContainerStyled,
     NavigationItemStyled,
-    TitleContainerStyled,
+    NavigationItemsWrapperStyled,
     // NavigationGradientContainerStyled,
+    TitleContainerStyled,
 } from './AboutPage.styled.ts';
+import {useEffect, useState} from "react";
 
 interface AboutNavigationPropsType {
     activeChapter: string;
@@ -32,6 +33,7 @@ interface AboutNavigationPropsType {
 }
 
 export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapters}: AboutNavigationPropsType) => {
+    const [isMobile, setIsMobile] = useState<boolean>(true);
     const windowSize = useWindowSize();
     const navigationChapters = chapters.map(chapter => chapter.label);
 
@@ -41,13 +43,21 @@ export const AboutNavigation = ({activeChapter, chooseChapter, openModal, chapte
         'Computer graphics is my job and my favorite hobby.',
         'I get a lot of pleasure from it.'];
 
+    useEffect(() => {
+        if (windowSize.width <= 720) {
+            setIsMobile(true);
+        } else {
+            setIsMobile(false);
+        }
+    }, [windowSize]);
+
     return (
         <NavigationContainerStyled>
             <TitleContainerStyled>
                 <Title variant='h1' color='#000' text={'About'}/>
-                <ImageContainer>
+                {!isMobile && (<ImageContainer>
                     <ImageStyled src={photo}/>
-                </ImageContainer>
+                </ImageContainer>)}
             </TitleContainerStyled>
             <ChaptersStyled>
                 <ButtonsContainerStyled>

@@ -25,7 +25,7 @@ export const ServicesPageContainerStyled = styled.div`
 
 export const TitleContainerStyled = styled.div`
   width: 100%;
-  padding: 30px 30px 50px;
+  padding: 30px 30px 15px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
@@ -39,6 +39,11 @@ export const TitleContainerStyled = styled.div`
   @media screen and (max-width: 1280px) {
     font-size: 32px;
     line-height: 36px;
+  }
+  
+  @media screen and (max-width: 430px) {
+    padding: 15px 15px 10px;
+    text-align: center;
   }
 `;
 
@@ -60,7 +65,7 @@ export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
   position: absolute;
   top: ${({ $top = false }) => $top ? '-2px' : 'auto'};
   bottom: ${({ $bottom = false }) => $bottom ? '-2px' : 'auto'};
-  right: 30px;
+  right: 10px;
   z-index: 1;
 
   @media screen and (max-width: 1280px) {
@@ -71,7 +76,7 @@ export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
 export const ContextContainerStyled = styled.div`
   width: 100%;
   max-height: 100%;
-  padding: 0 30px;
+  padding: 30px;
   box-sizing: border-box;
   display: flex;
   align-items: flex-start;
@@ -82,6 +87,12 @@ export const ContextContainerStyled = styled.div`
   scrollbar-width: thin;
   position: relative;
   z-index: 0;
+  
+  @media screen and (max-width: 430px) {
+    padding: 0 10px;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
 `;
 
 export const ServiceContainerStyled = styled.div`
@@ -91,6 +102,20 @@ export const ServiceContainerStyled = styled.div`
   box-sizing: border-box;
   display: flex;
   gap: 50px;
+  
+  @media screen and (max-width: 630px) {
+    min-width: 0;
+    width: 100%;
+  }
+  
+  @media screen and (max-width: 430px) { 
+    flex-direction: column;
+    gap: 10px;
+  }
+`;
+
+export const PictureStyled= styled.picture`
+  width: 190px; 
 `;
 
 export const ImageStyled = styled.img`

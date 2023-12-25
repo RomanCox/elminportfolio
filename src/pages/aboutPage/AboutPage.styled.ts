@@ -91,6 +91,17 @@ export const NavigationContainerStyled = styled.div`
     height: 230px;
     padding: 30px 30px 10px;
   }
+  
+  @media screen and (max-width: 720px) {
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  @media screen and (max-width: 430px) {
+    padding: 15px;
+    gap: 10px;
+  }
 `;
 
 export const TitleContainerStyled = styled.div`
@@ -109,6 +120,11 @@ export const TitleContainerStyled = styled.div`
   @media screen and (max-width: 1280px) {
     font-size: 32px;
     line-height: 36px;
+  }
+  
+  @media screen and (max-width: 720px) {
+    width: 100%;
+    text-align: center;
   }
 `;
 
@@ -152,6 +168,16 @@ export const ChaptersStyled = styled.div`
   @media screen and (max-width: 1280px) {
     padding-left: calc(30vw - 210px);
   }
+  
+  @media screen and (max-width: 720px) {
+    max-width: none;
+    width: 100%;
+    padding-left: 0;
+  }
+  
+  @media screen and (max-width: 430px) {
+    gap: 10px;
+  }
 `;
 
 export const ButtonsContainerStyled = styled.div`
@@ -162,6 +188,16 @@ export const ButtonsContainerStyled = styled.div`
   justify-content: space-between;
   align-items: center;
   gap: 40px;
+  
+  @media screen and (max-width: 1280px) {
+    gap: 20px;
+  }
+  
+  @media screen and (max-width: 720px) {
+    max-width: none;
+    width: 100%;
+    padding-left: 0;
+  }
 `;
 
 export const NavigationItemsWrapperStyled = styled.div`
@@ -198,6 +234,11 @@ export const NavigationItemsContainerStyled = styled.div`
   @media screen and (max-width: 1280px) {
     gap: 20px;
   }
+  
+  // TODO delete this padding if gradient will work
+  @media screen and (max-width: 720px) {
+    padding: 0;
+  }
 `;
 
 export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
@@ -220,8 +261,8 @@ export const NavigationItemStyled = styled.a<NavigationItemStyledPropsType>`
 `;
 
 export const CVButtonStyled = styled.button`
-  width: 100px;
-  padding: 0 10px;
+  width: 122px;
+  padding: 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -239,15 +280,13 @@ export const CVButtonStyled = styled.button`
   text-align: center;
   user-select: none;
 
-  &:hover, &:active, &:focus {
-    outline: none;
-    color: #000;
+  @media screen and (min-width: 1280px) {
+    &:hover, &:active, &:focus {
+      outline: none;
+      color: #000;
+    }
   }
-
-  &:hover, svg:hover {
-    stroke-dashoffset: 0;
-  }
-
+  
   div {
     display: flex;
     justify-content: center;
@@ -265,8 +304,10 @@ export const CVButtonBorderStyled = styled.svg`
   stroke-dashoffset: 280;
   transition: 0.5s ease-in-out;
 
-  &:hover {
-    stroke-dashoffset: 0;
+  @media screen and (min-width: 1280px) {
+    &:hover {
+      stroke-dashoffset: 0;
+    }
   }
 `;
 
@@ -309,6 +350,11 @@ export const AllContentWrapperStyled = styled.div`
   @media screen and (max-width: 1280px) {
     padding-left: calc(30vw + 25px);
   }
+  
+  @media screen and (max-width: 720px) {
+    height: calc(100vh - 450px);
+    padding-left: 30px;
+  }
 `;
 
 export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
@@ -322,6 +368,10 @@ export const GradientContainerStyled = styled.div<GradientStyledPropsType>`
 
   @media screen and (max-width: 1280px) {
     height: 30px;
+  }
+  
+  @media screen and (max-width: 720px) {
+    width: 100%;
   }
 `;
 
@@ -354,6 +404,10 @@ export const ContentContainerStyled = styled.div`
 
   @media screen and (max-width: 1280px) {
     padding-top: 30px;
+  }
+  
+  @media screen and (max-width: 430px) {
+    gap: 10px;
   }
 `;
 

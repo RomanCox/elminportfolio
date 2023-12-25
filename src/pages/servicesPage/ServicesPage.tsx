@@ -21,7 +21,7 @@ import {
     ContextContainerStyled,
     ContextWrapperStyled,
     DescriptionContainerStyled, GradientContainerStyled,
-    ImageStyled,
+    ImageStyled, PictureStyled,
     ServiceContainerStyled,
     ServiceDescriptionStyled,
     ServiceLabelStyled,
@@ -149,11 +149,11 @@ const ServicesPage = () => {
                 <ContextContainerStyled>
                     {services.map(service =>
                         <ServiceContainerStyled key={service.id}>
-                            <picture>
+                            <PictureStyled>
                                 <source type={'image/webp'} srcSet={service.imageWEBP}/>
                                 <source type={'image/png'} srcSet={service.imagePNG}/>
-                                <ImageStyled src={service.imagePNG} alt={service.alt} width={190} height={190}/>
-                            </picture>
+                                <ImageStyled src={service.imagePNG} alt={service.alt} width={"190px"} height={190}/>
+                            </PictureStyled>
                             <DescriptionContainerStyled>
                                 <ServiceTitleStyled>{service.title}</ServiceTitleStyled>
                                 <ServiceLabelStyled>{service.label}</ServiceLabelStyled>
