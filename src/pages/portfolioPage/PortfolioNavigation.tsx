@@ -17,8 +17,9 @@ import {
     TitleAndChaptersContainerStyled,
     TitleContainerStyled,
 } from './PortfolioPage.styled.ts';
+import {MobilePropsType} from '../../App.tsx';
 
-interface AboutNavigationPropsType {
+interface AboutNavigationPropsType extends MobilePropsType {
     activeChapter: ActiveChapterType;
     chooseChapter: (value: ActiveChapterType) => void;
 }
@@ -29,7 +30,7 @@ export interface ChapterType {
     description: string[];
 }
 
-export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigationPropsType) => {
+export const PortfolioNavigation = ({isMobile, activeChapter, chooseChapter}: AboutNavigationPropsType) => {
     const windowSize = useWindowSize();
     const [description, setDescription] = useState<string[]>([]);
     const chapters: ChapterType[] = [
@@ -70,34 +71,36 @@ export const PortfolioNavigation = ({activeChapter, chooseChapter}: AboutNavigat
                 <TitleContainerStyled>
                     <Title variant='h1' color='#000' text={'Portfolio'}/>
                 </TitleContainerStyled>
-                <NavigationItemsWrapperStyled>
-                    <NavigationGradientContainerStyled $left>
-                        <Gradient angle={-90}/>
-                    </NavigationGradientContainerStyled>
-                    <NavigationItemsContainerStyled>
-                        {windowSize.width > 1024
-                            ? chapters.map(chapter =>
-                                <NavigationItem
-                                    key={chapter.id}
-                                    chapter={chapter}
-                                    activeChapter={activeChapter}
-                                    chooseChapter={chooseChapter}
-                                />
-                            )
-                            : chapters.map(chapter => <NavigationItemStyled
-                                    key={chapter.id}
-                                    $isActive={chapter.label === activeChapter}
-                                    onClick={() => chooseChapterTimeout(chapter.label)}
-                                >
-                                    {chapter.label}
-                                </NavigationItemStyled>
-                            )
-                        }
-                    </NavigationItemsContainerStyled>
-                    <NavigationGradientContainerStyled $right>
-                        <Gradient angle={90}/>
-                    </NavigationGradientContainerStyled>
-                </NavigationItemsWrapperStyled>
+                {!isMobile && (
+                    <NavigationItemsWrapperStyled>
+                        <NavigationGradientContainerStyled $left>
+                            <Gradient angle={-90}/>
+                        </NavigationGradientContainerStyled>
+                        <NavigationItemsContainerStyled>
+                            {windowSize.width > 1024
+                                ? chapters.map(chapter =>
+                                    <NavigationItem
+                                        key={chapter.id}
+                                        chapter={chapter}
+                                        activeChapter={activeChapter}
+                                        chooseChapter={chooseChapter}
+                                    />
+                                )
+                                : chapters.map(chapter => <NavigationItemStyled
+                                        key={chapter.id}
+                                        $isActive={chapter.label === activeChapter}
+                                        onClick={() => chooseChapterTimeout(chapter.label)}
+                                    >
+                                        {chapter.label}
+                                    </NavigationItemStyled>
+                                )
+                            }
+                        </NavigationItemsContainerStyled>
+                        <NavigationGradientContainerStyled $right>
+                            <Gradient angle={90}/>
+                        </NavigationGradientContainerStyled>
+                    </NavigationItemsWrapperStyled>
+                )}
             </TitleAndChaptersContainerStyled>
             {description.length > 0 && <DescriptionContainerStyled>
                 {description.map(text => <div key={text}>

@@ -53,8 +53,8 @@ export const App = () => {
                     <Route path={PATH.MAIN} element={<MainPageAsync/>}/>
                     <Route path={PATH.MAIN} element={<Layout isMobile={isMobile}/>}>
                         <Route path={PATH.HOME} element={<HomePageAsync isMobile={isMobile}/>}/>
-                        <Route path={PATH.ABOUT} element={<AboutPageAsync/>}/>
-                        <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync/>}/>
+                        <Route path={PATH.ABOUT} element={<AboutPageAsync isMobile={isMobile}/>}/>
+                        <Route path={PATH.PORTFOLIO} element={<PortfolioPageAsync isMobile={isMobile}/>}/>
                         <Route path={PATH.SERVICES} element={<ServicesPageAsync/>}/>
                         <Route path={PATH.CONTACTS} element={<ContactsPageAsync/>}/>
                         <Route path={PATH.NOTFOUND} element={<NotFoundPageAsync/>}/>
