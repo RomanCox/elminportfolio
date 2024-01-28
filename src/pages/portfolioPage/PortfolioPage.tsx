@@ -18,7 +18,7 @@ const PortfolioPage = ({isMobile}: MobilePropsType) => {
 	return (
 		<PortfolioPageContainerStyled>
 			<PortfolioNavigation isMobile={isMobile} activeChapter={activeChapter} chooseChapter={chooseChapter}/>
-			<PortfolioContent activeChapter={activeChapter}/>
+			<PortfolioContent isMobile={isMobile} activeChapter={activeChapter}/>
 		</PortfolioPageContainerStyled>
 	);
 };

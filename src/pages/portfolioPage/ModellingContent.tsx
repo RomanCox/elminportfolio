@@ -161,10 +161,10 @@ import {
     BigImageStyled,
     ForwardArrowStyled,
     ImageStyled,
-    ModellingContentContainerStyled,
+    ModellingContentContainerStyled, NavigationItemStyled,
 } from './PortfolioPage.styled.ts';
 
-export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
+export const ModellingContent = ({isMobile, isScroll = false, }: ScrollPropsType) => {
     const [modalIsShow, setModalIsShow] = useState<boolean>(false);
     const [imageInModal, setImageInModal] = useState<number>(0);
 
@@ -603,6 +603,13 @@ export const ModellingContent = ({isScroll = false}: ScrollPropsType) => {
 
     return (
         <ModellingContentContainerStyled $isScroll={isScroll}>
+            {isMobile && (
+                <NavigationItemStyled
+                    $isActive={false}
+                >
+                    3D Modeling & Visualization
+                </NavigationItemStyled>
+            )}
             {modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
                 <BackArrowStyled fontSize={'large'} onClick={(e) => prevImage(e)}/>
                     <picture>

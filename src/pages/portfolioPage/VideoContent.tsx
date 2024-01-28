@@ -5,10 +5,15 @@ import {youtubeAPI} from '../../api/youtubeAPI.ts';
 import {Modal} from '../../components/modal';
 
 import {ScrollPropsType} from './PortfolioContent.tsx';
-import {VideosContainerStyled, IframeContainer, VideoContainerStyled} from './PortfolioPage.styled.ts';
-import {ItemType} from "../../api/youtubeAPI.types.ts";
+import {
+    IframeContainer,
+    NavigationItemStyled,
+    VideoContainerStyled,
+    VideosContainerStyled
+} from './PortfolioPage.styled.ts';
+import {ItemType} from '../../api/youtubeAPI.types.ts';
 
-export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
+export const VideoContent = ({isMobile, isScroll = false}: ScrollPropsType) => {
     const [modalIsShow, setModalIsShow] = useState<boolean>(false);
     const [videos, setVideos] = useState<ItemType[]>([]);
     const [videoInModal, setVideoInModal] = useState<string>('');
@@ -42,20 +47,29 @@ export const VideoContent = ({isScroll = false}: ScrollPropsType) => {
 
     return (
         <VideosContainerStyled $isScroll={isScroll}>
-            {videos.length && modalIsShow && <Modal closeModal={closeModal} modalActive={modalIsShow}>
-                <IframeContainer
-                    $image={videos.filter(video => video.id === videoInModal)[0].snippet.thumbnails.maxres.url}>
-                    <iframe
-                        width='100%'
-                        height='100%'
-                        src={`https://www.youtube.com/embed/${videos.filter(video => video.id === videoInModal)[0].contentDetails.videoId}`}
-                        title={videos.filter(video => video.id === videoInModal)[0].snippet.title}
-                        allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                        allowFullScreen
-                    />
-                </IframeContainer>
-            </Modal>}
-            {videos.length !== 0 &&
+            {isMobile && (
+                <NavigationItemStyled
+                    $isActive={false}
+                >
+                    Interactive & Animation
+                </NavigationItemStyled>
+            )}
+            {videos.length > 0 && modalIsShow && (
+                <Modal closeModal={closeModal} modalActive={modalIsShow}>
+                    <IframeContainer
+                        $image={videos.filter(video => video.id === videoInModal)[0].snippet.thumbnails.maxres.url}>
+                        <iframe
+                            width='100%'
+                            height='100%'
+                            src={`https://www.youtube.com/embed/${videos.filter(video => video.id === videoInModal)[0].contentDetails.videoId}`}
+                            title={videos.filter(video => video.id === videoInModal)[0].snippet.title}
+                            allow='accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                            allowFullScreen
+                        />
+                    </IframeContainer>
+                </Modal>
+            )}
+            {videos.length > 0 &&
                 videos.map(video =>
                     <VideoContainerStyled
                         key={video.id}
