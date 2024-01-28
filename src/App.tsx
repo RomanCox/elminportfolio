@@ -43,8 +43,6 @@ export const App = () => {
         document.documentElement.style.setProperty('--vh', `${windowSize.height * 0.01}px`);
     }, [windowSize]);
 
-    console.log(window.outerHeight, window.visualViewport?.height)
-
     return (
         <AppContainerStyled>
             {/*TODO create <Loading/>*/}
